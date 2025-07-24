@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "A static portfolio website built with Tailwind CSS",
+  "main": "src/index.html",
+  "scripts": {
+    "build": "tailwindcss build src/styles/tailwind.css -o src/styles/output.css",
+    "watch": "tailwindcss build src/styles/tailwind.css -o src/styles/output.css --watch",
+    "start": "live-server src"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

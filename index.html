@@ -1,0 +1,457 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    .percentage-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .percentage-text.show {
+    opacity: 1;
+  }
+    .skill-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: inherit;
+    animation: fillBar 1.5s ease forwards;
+    border-radius: inherit;
+  }
+
+  .skill-bar.animate::after {
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes fillBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+    .hero-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1f71 0%, #274584 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.1;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem; /* This helps with fixed header offset */
+    }
+
+    /* Optional: Add custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+
+    /* For Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #888 #f1f1f1;
+    }
+  .gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #2563eb, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1), transparent);
+    animation: pulse 5s ease infinite;
+  }
+.scale-out {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 0.6s ease-out;
+  }
+
+  .scale-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+  }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100" id="body">
+  <header class="bg-white shadow dark:bg-gray-900 dark:text-gray-100">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="text-xl font-bold text-blue-700 dark:text-blue-400">Michael Angelo Raguindin Lacuata</div>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-600 font-medium dark:hover:text-blue-400">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 font-medium dark:hover:text-blue-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 font-medium dark:hover:text-blue-400">Contact</a></li>
+      </ul>
+      <!-- Light/Dark Switch Button -->
+<!-- In your header/nav, keep the button as: -->
+<button id="theme-toggle" class="ml-6 px-3 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+  <span id="theme-icon">
+    <!-- Sun icon (light mode) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  </span>
+</button>
+    </nav>
+  </header>
+<main class="w-full min-h-screen px-6 py-10 dark:bg-gray-900 dark:text-gray-100">
+    <section id="hero" class="scale-out text-center py-16 dark:bg-gray-900 dark:text-gray-100">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">Hi, I'm Michael Angelo</h1>
+      <p class="text-lg md:text-xl mb-6">Web Developer</p>
+      <a href="#projects" class="inline-block bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">View My Work</a>
+    </section>
+   <section id="about" class="scale-out bg-white rounded-lg shadow p-8 mb-10 dark:bg-gray-800 dark:text-gray-100">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">
+      ABOUT ME
+      <span class="block w-16 h-1 bg-orange-400 mt-1"></span>
+    </h2>
+      <p class="mb-4">
+        <span class="font-semibold">Address:</span> #041 Sterling Village, Villasis, Pangasinan<br>
+        <span class="font-semibold">E-mail:</span> michaelangelolacuata022@gmail.com<br>
+        <span class="font-semibold">Contact No:</span> +639485643342
+      </p>
+      <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-2">Work Experience</h3>
+      <ul class="list-disc list-inside space-y-2 mb-6">
+        <li>
+          <span class="font-bold">Freelance Web Developer</span> <span class="text-gray-500">(Feb 2019 – Present)</span>
+          <ul class="list-disc list-inside ml-6 text-gray-600">
+            <li>Custom WordPress development (front-end & back-end)</li>
+            <li>Advanced plugin customization & page layout modifications</li>
+            <li>E-commerce stores: Shopify, Wix, WooCommerce</li>
+            <li>PSD/Figma to WordPress conversion</li>
+            <li>SEO best practices, speed, accessibility, responsiveness</li>
+            <li>Client collaboration & scalable web solutions</li>
+            <li>Website maintenance & troubleshooting</li>
+          </ul>
+        </li>
+        <li>
+          <span class="font-bold">Application Engineer – Spartan Allied Services Management Inc.</span> <span class="text-gray-500">(Feb 2015 – Mar 2018)</span>
+          <ul class="list-disc list-inside ml-6 text-gray-600">
+            <li>WordPress CMS development</li>
+            <li>Mobile-responsive design</li>
+            <li>Front-End & Back-End Development</li>
+            <li>Manage cPanel, databases, subdomains, email</li>
+            <li>Page speed optimization</li>
+            <li>E-commerce (OpenCart) & LMS (Moodle) maintenance</li>
+            <li>PSD to WordPress conversion</li>
+          </ul>
+        </li>
+        <li>
+          <span class="font-bold">Web Developer – Linkage Web Development</span> <span class="text-gray-500">(Apr 2014 – Jan 2015)</span>
+          <ul class="list-disc list-inside ml-6 text-gray-600">
+            <li>WordPress CMS development</li>
+            <li>Mobile-responsive design</li>
+            <li>PSD to WordPress conversion</li>
+          </ul>
+        </li>
+        <li>
+          <span class="font-bold">On-the-Job Trainee – Linkage Web Development</span> <span class="text-gray-500">(Dec 2013 – Apr 2014)</span>
+          <ul class="list-disc list-inside ml-6 text-gray-600">
+            <li>PSD to WordPress conversion</li>
+          </ul>
+        </li>
+      </ul>
+      <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-2">Technical Expertise</h3>
+      <p class="mb-6 text-gray-600">
+        WordPress, PHP, MySQL, cPanel, Bootstrap, Adobe Photoshop, HTML, CSS, jQuery, JavaScript
+      </p>
+      <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-2">Seminar and Training Experiences</h3>
+      <ul class="list-disc list-inside mb-6 text-gray-600">
+        <li>Paper Presentation on Innovative ICT Development – Sep 3, 2013, University of the Cordilleras</li>
+        <li>I-Positive Seminar – Oct 16, 2013, Leisure Coast, Dagupan City</li>
+        <li>Research Symposium – Mar 7, 2013, Urdaneta City University</li>
+        <li>10th Philippine Youth Congress on IT – Sep 13, 2012, UP Diliman</li>
+      </ul>
+      <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-2">Educational Background</h3>
+      <ul class="list-disc list-inside text-gray-600">
+        <li><span class="font-bold">Urdaneta City University</span> – BS in Information Technology (Oct 2009 – Apr 2014)</li>
+        <li><span class="font-bold">Pangasinan State University</span> – BS in Information and Communication Technology (Jun 2009 – Oct 2009)</li>
+      </ul>
+    </section>
+    <section id="projects" class="scale-out mb-10 dark:bg-gray-900 dark:text-gray-100">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">
+      PROJECTS
+      <span class="block w-16 h-1 bg-orange-400 mt-1"></span>
+    </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-lg font-semibold mb-2">Portfolio Website</h3>
+          <p class="mb-4 text-gray-600">A personal portfolio website to showcase my skills and projects.</p>
+          <a href="#" target="_blank" class="text-blue-600 hover:underline">View Project</a>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-lg font-semibold mb-2">Blog Platform</h3>
+          <p class="mb-4 text-gray-600">A simple blog platform built with HTML, CSS, and JavaScript.</p>
+          <a href="#" target="_blank" class="text-blue-600 hover:underline">View Project</a>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-lg font-semibold mb-2">Weather App</h3>
+          <p class="mb-4 text-gray-600">A weather application that fetches real-time data using APIs.</p>
+          <a href="#" target="_blank" class="text-blue-600 hover:underline">View Project</a>
+        </div>
+      </div>
+    </section>
+    <!-- Add this after your Technical Expertise section -->
+<section id="dev-toolkit" class="scale-out bg-white rounded-lg shadow p-8 mb-10 dark:bg-gray-800 dark:text-gray-100">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">
+      DEV TOOLKIT
+      <span class="block w-16 h-1 bg-orange-400 mt-1"></span>
+    </h2>
+    <p class="text-gray-600 md:ml-8">
+      Here's an overview of my development skills and programming languages.
+    </p>
+  </div>
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Backend & Frontend -->
+    <div>
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Backend Engineering</h3>
+      <div class="mb-4">
+  <div class="flex justify-between mb-1">
+    <span class="font-medium">PHP</span>
+    <span class="percentage-text" data-target="80">0%</span>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-3 mt-1 relative overflow-hidden">
+    <div class="skill-bar bg-blue-600 h-3 rounded-full" style="width:0%"></div>
+  </div>
+</div>
+    </div>
+    <!-- Frontend & UI/UX -->
+    <div>
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Frontend Engineering</h3>
+     <div class="mb-4">
+  <div class="flex justify-between mb-1">
+    <span class="font-medium">PHP</span>
+    <span class="percentage-text" data-target="80">0%</span>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-3 mt-1 relative overflow-hidden">
+    <div class="skill-bar bg-blue-600 h-3 rounded-full" style="width:0%"></div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+    <section id="contact" class="scale-out bg-white rounded-lg shadow p-8 mb-10 dark:bg-gray-800 dark:text-gray-100">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">
+      CONTACT
+      <span class="block w-16 h-1 bg-orange-400 mt-1"></span>
+    </h2>
+      <p class="mb-6">
+        <span class="font-semibold">Email:</span> michaelangelolacuata022@gmail.com<br>
+        <span class="font-semibold">Phone:</span> +639485643342<br>
+        <span class="font-semibold">Address:</span> #041 Sterling Village, Villasis, Pangasinan
+      </p>
+      <form id="contact-form" class="space-y-4">
+        <div>
+          <label for="name" class="block font-medium mb-1">Name</label>
+          <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="email" class="block font-medium mb-1">Email</label>
+          <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="message" class="block font-medium mb-1">Message</label>
+          <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">Send Message</button>
+      </form>
+    </section>
+  </main>
+<footer class="bg-white border-t py-6 text-center text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+    &copy; 2024 Michael Angelo Raguindin Lacuata. All rights reserved.
+  </footer>
+<!-- Replace the JavaScript section with: -->
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const body = document.getElementById('body');
+  const icon = document.getElementById('theme-icon');
+  let darkMode = false;
+
+  const sunIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  `;
+  
+  const moonIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  `;
+
+  btn.addEventListener('click', () => {
+    darkMode = !darkMode;
+    if (darkMode) {
+      body.classList.add('dark');
+      icon.innerHTML = moonIcon;
+    } else {
+      body.classList.remove('dark');
+      icon.innerHTML = sunIcon;
+    }
+  });
+</script>
+<script>
+  // ...existing theme toggle script...
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scale-in');
+      }
+    });
+  }, {
+    threshold: 0.1 // Trigger when 10% of the element is visible
+  });
+
+  // Observe all sections with scale-out class
+  document.querySelectorAll('.scale-out').forEach((section) => {
+    observer.observe(section);
+  });
+</script>
+<script>
+  // Intersection Observer for skill bars animation
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  // Observe all skill bars
+  document.querySelectorAll('.skill-bar').forEach((bar) => {
+    skillObserver.observe(bar);
+  });
+</script>
+<!-- Add this JavaScript before the closing body tag -->
+<script>
+  const animateValue = (element, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const value = Math.floor(progress * (end - start) + start);
+      element.textContent = `${value}%`;
+      element.parentElement.nextElementSibling.querySelector('.skill-bar').style.width = `${value}%`;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  // Modify your existing skill observer
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const percentageText = entry.target.previousElementSibling.querySelector('.percentage-text');
+        const targetValue = parseInt(percentageText.dataset.target);
+        percentageText.classList.add('show');
+        entry.target.classList.add('animate');
+        animateValue(percentageText, 0, targetValue, 1500); // 1500ms duration
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  // Observe all skill bars
+  document.querySelectorAll('.skill-bar').forEach((bar) => {
+    skillObserver.observe(bar);
+  });
+</script>
+</body>
+</html>
