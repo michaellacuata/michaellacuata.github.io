@@ -39,98 +39,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Draggable Project Images - Scroll effect
+    // Auto-Scroll Project Images on Hover
     const projectImages = document.querySelectorAll('.project-image img');
     
     projectImages.forEach(img => {
-        let isDown = false;
-        let startY = 0;
-        let currentScroll = 0;
+        let scrollAnimation = null;
         const projectImage = img.closest('.project-image');
         const dragBadge = projectImage.querySelector('.drag-badge');
         
-        img.style.cursor = 'grab';
-        
         // Show badge on hover
         projectImage.addEventListener('mouseenter', () => {
-            if (!isDown && dragBadge) {
+            if (dragBadge) {
                 dragBadge.style.opacity = '1';
+            }
+            
+            // Start auto-scroll animation
+            const imageHeight = img.naturalHeight || img.height;
+            const containerHeight = projectImage.offsetHeight;
+            const maxScroll = imageHeight - containerHeight;
+            
+            if (maxScroll > 0) {
+                img.style.animation = `scrollImage 5s ease-in-out forwards`;
             }
         });
         
-        // Hide badge on leave
+        // Hide badge and stop animation on leave
         projectImage.addEventListener('mouseleave', () => {
             if (dragBadge) {
                 dragBadge.style.opacity = '0';
             }
-        });
-        
-        projectImage.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startY = e.clientY;
-            img.style.cursor = 'grabbing';
-            // Hide the badge when dragging starts
-            if (dragBadge) {
-                dragBadge.style.opacity = '0';
-            }
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            
-            const walk = (e.clientY - startY) * -1;
-            const imageHeight = img.naturalHeight || img.height;
-            const containerHeight = projectImage.offsetHeight;
-            
-            // Calculate the maximum scroll distance
-            const maxScroll = imageHeight - containerHeight;
-            
-            // Apply scroll with limits
-            let scrollValue = currentScroll + walk;
-            scrollValue = Math.max(0, Math.min(scrollValue, maxScroll));
-            
-            img.style.objectPosition = `center ${-scrollValue}px`;
-        });
-
-        document.addEventListener('mouseup', () => {
-            if (isDown) {
-                currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
-                currentScroll = Math.abs(currentScroll);
-            }
-            isDown = false;
-            img.style.cursor = 'grab';
-        });
-
-        // Touch support for mobile
-        projectImage.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startY = e.touches[0].clientY;
-            if (dragBadge) {
-                dragBadge.style.opacity = '0';
-            }
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            
-            const walk = (e.touches[0].clientY - startY) * -1;
-            const imageHeight = img.naturalHeight || img.height;
-            const containerHeight = projectImage.offsetHeight;
-            
-            const maxScroll = imageHeight - containerHeight;
-            
-            let scrollValue = currentScroll + walk;
-            scrollValue = Math.max(0, Math.min(scrollValue, maxScroll));
-            
-            img.style.objectPosition = `center ${-scrollValue}px`;
-        });
-
-        document.addEventListener('touchend', () => {
-            if (isDown) {
-                currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
-                currentScroll = Math.abs(currentScroll);
-            }
-            isDown = false;
+            // Reset animation
+            img.style.animation = 'none';
+            img.style.objectPosition = 'center top';
         });
     });
 });
