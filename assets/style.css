@@ -180,24 +180,67 @@ ul { list-style: none; }
     transform: translateY(-3px);
 }
 
+/* About - Content */
+.about-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.highlight-years {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
 /* About - Strengths */
 .strengths-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .strength-card {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
     text-align: center;
     transition: var(--transition);
+    border: 1px solid rgba(37, 99, 235, 0.1);
 }
-.strength-card:hover { transform: translateY(-5px); }
-.strength-card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; }
+.strength-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+.strength-card i {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    display: block;
+}
+.strength-card h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.strength-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
 
 /* Skills Grid */
 .skills-grid {
