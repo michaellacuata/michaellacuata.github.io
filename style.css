@@ -302,3 +302,124 @@ footer {
     .timeline-item { padding-left: 25px; }
     .timeline-item::after { left: -9px; }
 }
+/* --- Hero Layout Updates --- */
+.hero {
+    min-height: 100vh; /* Changed from fixed height to min-height */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding-top: 100px; /* Space for navbar */
+    padding-bottom: 50px;
+    overflow: hidden; /* Prevents glow from stretching page */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px; /* Space between text and image */
+}
+
+.hero-text {
+    flex: 1; /* Takes up 50% width */
+    max-width: 600px;
+    z-index: 2; /* Ensures text is above background */
+}
+
+/* --- The Image Container --- */
+.hero-img-container {
+    flex: 1; /* Takes up 50% width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 500px;
+}
+
+/* --- The Photo Styling & Animation --- */
+.profile-pic {
+    width: 100%;
+    max-width: 400px; /* Adjust size of image here */
+    height: auto;
+    position: relative;
+    z-index: 2;
+    /* The Floating Animation */
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+}
+
+/* --- The Glowing Background Pulse --- */
+.glow-circle {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(37,99,235,0.4) 0%, rgba(37,99,235,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* The Pulse Animation */
+    animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-25px); /* Moves up */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 991px) {
+    .hero {
+        text-align: center;
+        padding-top: 120px;
+        height: auto;
+    }
+    
+    .hero-content {
+        flex-direction: column-reverse; /* Puts image on top on mobile */
+        gap: 30px;
+    }
+
+    .hero-img-container {
+        width: 100%;
+    }
+
+    .profile-pic {
+        max-width: 280px; /* Smaller image on mobile */
+    }
+
+    .hero-text {
+        padding: 0 10px;
+    }
+
+    .cta-group {
+        justify-content: center;
+    }
+    
+    .tech-stack-icons {
+        justify-content: center;
+        display: flex;
+    }
+}
