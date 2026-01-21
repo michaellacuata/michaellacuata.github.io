@@ -46,20 +46,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectImage = img.closest('.project-image');
         let isScrolling = false;
         
-        // Start auto-scroll animation on hover
-        projectImage.addEventListener('mouseenter', () => {
-            if (isScrolling) return; // Prevent retriggering while scrolling
+        // Function to calculate and apply scroll
+        const handleScroll = () => {
+            if (isScrolling) return;
             
-            const imageHeight = img.naturalHeight;
+            const imageHeight = img.naturalHeight || img.offsetHeight;
             const containerHeight = projectImage.offsetHeight;
             
-            // Only scroll if image is actually taller than container
-            if (imageHeight && imageHeight > containerHeight) {
+            if (imageHeight > containerHeight) {
                 isScrolling = true;
                 const maxScroll = imageHeight - containerHeight;
                 img.style.transform = `translateY(-${maxScroll}px)`;
             }
-        });
+        };
+        
+        // Wait for image to load
+        if (img.complete) {
+            // Image is already cached/loaded
+            handleScroll();
+        } else {
+            // Wait for image to load
+            img.addEventListener('load', handleScroll);
+        }
+        
+        // Start auto-scroll animation on hover
+        projectImage.addEventListener('mouseenter', handleScroll);
         
         // Reset animation on leave
         projectImage.addEventListener('mouseleave', () => {
