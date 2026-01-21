@@ -46,21 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let isDown = false;
         let startY = 0;
         let currentScroll = 0;
+        const projectCard = img.closest('.project-card');
+        const projectImage = img.closest('.project-image');
         
         img.style.cursor = 'grab';
-        img.addEventListener('mousedown', (e) => {
+        
+        projectImage.addEventListener('mousedown', (e) => {
             isDown = true;
             startY = e.clientY;
             img.style.cursor = 'grabbing';
         });
 
-        document.addEventListener('mousemove', (e) => {
-            if (!isDown || !img.closest('.project-card')) return;
+        projectImage.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
             
             e.preventDefault();
             const walk = (e.clientY - startY) * -1;
             const imageHeight = img.naturalHeight || img.height;
-            const containerHeight = img.closest('.project-image').offsetHeight;
+            const containerHeight = projectImage.offsetHeight;
             
             // Calculate the maximum scroll distance
             const maxScroll = imageHeight - containerHeight;
@@ -72,7 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.objectPosition = `center ${-scrollValue}px`;
         });
 
-        document.addEventListener('mouseup', () => {
+        projectImage.addEventListener('mouseleave', () => {
+            isDown = false;
+            img.style.cursor = 'grab';
+        });
+
+        projectImage.addEventListener('mouseup', () => {
             if (isDown) {
                 currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
                 currentScroll = Math.abs(currentScroll);
@@ -82,18 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Touch support for mobile
-        img.addEventListener('touchstart', (e) => {
+        projectImage.addEventListener('touchstart', (e) => {
             isDown = true;
             startY = e.touches[0].clientY;
             img.style.cursor = 'grabbing';
         });
 
-        document.addEventListener('touchmove', (e) => {
-            if (!isDown || !img.closest('.project-card')) return;
+        projectImage.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
             
             const walk = (e.touches[0].clientY - startY) * -1;
             const imageHeight = img.naturalHeight || img.height;
-            const containerHeight = img.closest('.project-image').offsetHeight;
+            const containerHeight = projectImage.offsetHeight;
             
             const maxScroll = imageHeight - containerHeight;
             
@@ -103,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.objectPosition = `center ${-scrollValue}px`;
         });
 
-        document.addEventListener('touchend', () => {
+        projectImage.addEventListener('touchend', () => {
             if (isDown) {
                 currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
                 currentScroll = Math.abs(currentScroll);
