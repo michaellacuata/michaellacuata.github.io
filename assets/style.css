@@ -497,6 +497,7 @@ ul { list-style: none; }
     overflow: hidden;
     background: #f1f5f9;
     user-select: none;
+    position: relative;
 }
 
 .project-image img {
@@ -506,6 +507,27 @@ ul { list-style: none; }
     object-position: center top;
     display: block;
     cursor: grab;
+}
+
+.drag-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.project-image:hover .drag-badge {
+    opacity: 1;
 }
 
 .project-info {
