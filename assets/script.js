@@ -39,13 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Get Project Image Sizes
+    // Get Project Image Sizes and Display Below Links
     function getProjectImageSizes() {
         const projectImages = document.querySelectorAll('.project-image img');
         const imageSizes = [];
 
         projectImages.forEach((img, index) => {
             const container = img.closest('.project-image');
+            const projectInfo = container.closest('.project-card').querySelector('.project-info');
+            
             const size = {
                 index: index + 1,
                 imgWidth: img.offsetWidth,
@@ -57,6 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             imageSizes.push(size);
             console.log(`Project Image ${index + 1}:`, size);
+
+            // Create and display size info below the visit website link
+            const projectLink = projectInfo.querySelector('.project-link');
+            let sizeDisplay = projectInfo.querySelector('.image-size-info');
+            
+            if (!sizeDisplay) {
+                sizeDisplay = document.createElement('p');
+                sizeDisplay.className = 'image-size-info';
+                projectLink.after(sizeDisplay);
+            }
+            
+            sizeDisplay.innerHTML = `<small style="color: #94a3b8; margin-top: 10px; display: block;">Image: ${size.naturalWidth}x${size.naturalHeight}px | Container: ${size.containerWidth}x${size.containerHeight}px</small>`;
         });
 
         return imageSizes;
