@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let isDown = false;
         let startY = 0;
         let currentScroll = 0;
-        const projectCard = img.closest('.project-card');
         const projectImage = img.closest('.project-image');
         
         img.style.cursor = 'grab';
@@ -57,10 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.cursor = 'grabbing';
         });
 
-        projectImage.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             
-            e.preventDefault();
             const walk = (e.clientY - startY) * -1;
             const imageHeight = img.naturalHeight || img.height;
             const containerHeight = projectImage.offsetHeight;
@@ -75,12 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.objectPosition = `center ${-scrollValue}px`;
         });
 
-        projectImage.addEventListener('mouseleave', () => {
-            isDown = false;
-            img.style.cursor = 'grab';
-        });
-
-        projectImage.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', () => {
             if (isDown) {
                 currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
                 currentScroll = Math.abs(currentScroll);
@@ -93,10 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         projectImage.addEventListener('touchstart', (e) => {
             isDown = true;
             startY = e.touches[0].clientY;
-            img.style.cursor = 'grabbing';
         });
 
-        projectImage.addEventListener('touchmove', (e) => {
+        document.addEventListener('touchmove', (e) => {
             if (!isDown) return;
             
             const walk = (e.touches[0].clientY - startY) * -1;
@@ -111,13 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.objectPosition = `center ${-scrollValue}px`;
         });
 
-        projectImage.addEventListener('touchend', () => {
+        document.addEventListener('touchend', () => {
             if (isDown) {
                 currentScroll = parseInt(img.style.objectPosition.split(' ')[1]) || 0;
                 currentScroll = Math.abs(currentScroll);
             }
             isDown = false;
-            img.style.cursor = 'grab';
+        });
         });
     });
 });
