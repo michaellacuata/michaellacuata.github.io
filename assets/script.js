@@ -43,17 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectImages = document.querySelectorAll('.project-image img');
     
     projectImages.forEach(img => {
-        let scrollAnimation = null;
         const projectImage = img.closest('.project-image');
-        const dragBadge = projectImage.querySelector('.drag-badge');
         
-        // Show badge on hover
+        // Start auto-scroll animation on hover
         projectImage.addEventListener('mouseenter', () => {
-            if (dragBadge) {
-                dragBadge.style.opacity = '1';
-            }
-            
-            // Start auto-scroll animation
             const imageHeight = img.naturalHeight || img.height;
             const containerHeight = projectImage.offsetHeight;
             const maxScroll = imageHeight - containerHeight;
@@ -63,12 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Hide badge and stop animation on leave
+        // Reset animation on leave
         projectImage.addEventListener('mouseleave', () => {
-            if (dragBadge) {
-                dragBadge.style.opacity = '0';
-            }
-            // Reset animation
             img.style.animation = 'none';
             img.style.objectPosition = 'center top';
         });
