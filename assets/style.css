@@ -496,27 +496,16 @@ ul { list-style: none; }
     height: 240px;
     overflow: hidden;
     background: #f1f5f9;
+    user-select: none;
 }
 
 .project-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    object-position: top center;
+    object-position: center top;
     display: block;
-}
-
-.project-card:hover .project-image img {
-    animation: scrollImage 3s ease-in-out forwards;
-}
-
-@keyframes scrollImage {
-    0% {
-        object-position: top center;
-    }
-    100% {
-        object-position: bottom center;
-    }
+    cursor: grab;
 }
 
 .project-info {
