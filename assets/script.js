@@ -47,13 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
         let startY = 0;
         let currentScroll = 0;
         const projectImage = img.closest('.project-image');
+        const dragBadge = projectImage.querySelector('.drag-badge');
         
         img.style.cursor = 'grab';
+        
+        // Show badge on hover
+        projectImage.addEventListener('mouseenter', () => {
+            if (!isDown && dragBadge) {
+                dragBadge.style.opacity = '1';
+            }
+        });
+        
+        // Hide badge on leave
+        projectImage.addEventListener('mouseleave', () => {
+            if (dragBadge) {
+                dragBadge.style.opacity = '0';
+            }
+        });
         
         projectImage.addEventListener('mousedown', (e) => {
             isDown = true;
             startY = e.clientY;
             img.style.cursor = 'grabbing';
+            // Hide the badge when dragging starts
+            if (dragBadge) {
+                dragBadge.style.opacity = '0';
+            }
         });
 
         document.addEventListener('mousemove', (e) => {
@@ -86,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
         projectImage.addEventListener('touchstart', (e) => {
             isDown = true;
             startY = e.touches[0].clientY;
+            if (dragBadge) {
+                dragBadge.style.opacity = '0';
+            }
         });
 
         document.addEventListener('touchmove', (e) => {
@@ -109,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentScroll = Math.abs(currentScroll);
             }
             isDown = false;
-        });
         });
     });
 });
