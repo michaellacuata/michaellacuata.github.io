@@ -500,7 +500,7 @@ ul { list-style: none; }
     position: relative;
     border-radius: 12px 12px 0 0;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
 }
 
@@ -508,13 +508,13 @@ ul { list-style: none; }
     width: 100%;
     height: auto;
     display: block;
-    transition: ease-in-out 3s;
+    transition: ease-in-out 5s;
     position: relative;
     top: 0;
 }
 
 .project-image:hover img {
-    top: -130%;
+    top: -160%;
 }
 
 .project-details-btn {
