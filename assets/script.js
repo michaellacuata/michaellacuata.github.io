@@ -39,6 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Get Project Image Sizes
+    function getProjectImageSizes() {
+        const projectImages = document.querySelectorAll('.project-image img');
+        const imageSizes = [];
+
+        projectImages.forEach((img, index) => {
+            const container = img.closest('.project-image');
+            const size = {
+                index: index + 1,
+                imgWidth: img.offsetWidth,
+                imgHeight: img.offsetHeight,
+                naturalWidth: img.naturalWidth,
+                naturalHeight: img.naturalHeight,
+                containerWidth: container.offsetWidth,
+                containerHeight: container.offsetHeight
+            };
+            imageSizes.push(size);
+            console.log(`Project Image ${index + 1}:`, size);
+        });
+
+        return imageSizes;
+    }
+
+    // Call the function and log sizes
+    getProjectImageSizes();
+
     // Auto-Scroll Project Images on Hover
     const projectImages = document.querySelectorAll('.project-image img');
     
