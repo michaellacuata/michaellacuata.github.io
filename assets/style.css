@@ -503,12 +503,20 @@ ul { list-style: none; }
     height: auto;
     object-fit: cover;
     object-position: top center;
-    transition: var(--transition);
     display: block;
 }
 
 .project-card:hover .project-image img {
-    object-position: bottom center;
+    animation: scrollImage 3s ease-in-out forwards;
+}
+
+@keyframes scrollImage {
+    0% {
+        object-position: top center;
+    }
+    100% {
+        object-position: bottom center;
+    }
 }
 
 .project-info {
