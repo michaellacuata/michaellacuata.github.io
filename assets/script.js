@@ -44,20 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     projectImages.forEach(img => {
         const projectImage = img.closest('.project-image');
+        let isScrolling = false;
         
         // Start auto-scroll animation on hover
         projectImage.addEventListener('mouseenter', () => {
-            const imageHeight = img.naturalHeight || img.height;
-            const containerHeight = projectImage.offsetHeight;
-            const maxScroll = imageHeight - containerHeight;
+            if (isScrolling) return; // Prevent retriggering while scrolling
             
-            if (maxScroll > 0) {
+            const imageHeight = img.naturalHeight;
+            const containerHeight = projectImage.offsetHeight;
+            
+            // Only scroll if image is actually taller than container
+            if (imageHeight && imageHeight > containerHeight) {
+                isScrolling = true;
+                const maxScroll = imageHeight - containerHeight;
                 img.style.transform = `translateY(-${maxScroll}px)`;
             }
         });
         
         // Reset animation on leave
         projectImage.addEventListener('mouseleave', () => {
+            isScrolling = false;
             img.style.transform = 'translateY(0)';
         });
     });

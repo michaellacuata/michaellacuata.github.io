@@ -504,7 +504,7 @@ ul { list-style: none; }
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 5s ease-in-out;
+    transition: transform 8s ease-in-out;
     transform: translateY(0);
 }
 
