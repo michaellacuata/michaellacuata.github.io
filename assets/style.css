@@ -159,8 +159,7 @@ ul { list-style: none; }
 .code-icon-bg {
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 0;
     font-size: 15rem;
     color: var(--primary-color);
     opacity: 0.08;
