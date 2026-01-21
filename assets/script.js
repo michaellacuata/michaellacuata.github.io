@@ -39,6 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Project Details Modal Functionality
+    const detailsButtons = document.querySelectorAll('.project-details-btn');
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.modal-close');
+
+    detailsButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = button.getAttribute('data-project');
+            const modal = document.getElementById(projectId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    closeButtons.forEach(closeBtn => {
+        closeBtn.addEventListener('click', () => {
+            const modal = closeBtn.closest('.modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
     // Project image scroll on hover is handled by CSS
     // The .project-image:hover img selector in CSS handles the scroll effect
 });
