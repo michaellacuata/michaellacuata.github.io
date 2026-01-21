@@ -795,6 +795,7 @@ footer {
     position: relative;
     z-index: 2;
     border-radius: 100%;
+    transform: scaleX(-1);
     /* The Floating Animation */
     animation: float 6s ease-in-out infinite, gaming-glow 2s ease-in-out infinite;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.4), 0 0 60px rgba(0, 255, 0, 0.3);
