@@ -873,9 +873,9 @@ footer {
     top: 0;
 }
 
-/* .project-image:hover img {
+.project-image:hover img {
     top: -130%;
-} */
+}
 
 .credit {
     font-weight: 300;
