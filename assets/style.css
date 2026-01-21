@@ -503,9 +503,9 @@ ul { list-style: none; }
 .project-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    object-position: center top;
     display: block;
+    transition: transform 5s ease-in-out;
+    transform: translateY(0);
 }
 
 .project-info {
@@ -845,15 +845,6 @@ footer {
     }
     50% {
         box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 50px rgba(255, 0, 255, 0.6), 0 0 70px rgba(0, 255, 0, 0.5);
-    }
-}
-
-@keyframes scrollImage {
-    0% {
-        object-position: center top;
-    }
-    100% {
-        object-position: center bottom;
     }
 }
 

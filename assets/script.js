@@ -52,14 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxScroll = imageHeight - containerHeight;
             
             if (maxScroll > 0) {
-                img.style.animation = `scrollImage 5s ease-in-out forwards`;
+                img.style.transform = `translateY(-${maxScroll}px)`;
             }
         });
         
         // Reset animation on leave
         projectImage.addEventListener('mouseleave', () => {
-            img.style.animation = 'none';
-            img.style.objectPosition = 'center top';
+            img.style.transform = 'translateY(0)';
         });
     });
 });
