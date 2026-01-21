@@ -498,14 +498,20 @@ ul { list-style: none; }
     background: #f1f5f9;
     user-select: none;
     position: relative;
+    border-radius: 12px 12px 0 0;
 }
 
 .project-image img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 8s ease-in-out;
-    transform: translateY(0);
+    transition: ease-in-out 3s;
+    position: relative;
+    top: 0;
+}
+
+.project-image:hover img {
+    top: -130%;
 }
 
 .project-info {
