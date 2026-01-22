@@ -856,6 +856,9 @@ ul { list-style: none; }
 section#contact {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
+#contact .section-title {
+    color:#FFF
+}
 /* Footer */
 footer {
     background: var(--secondary-color);
