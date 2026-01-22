@@ -842,6 +842,9 @@ ul { list-style: none; }
     color: #FFF;
         padding: 100px 50px;
 }
+.contact-info h2 {
+    margin-bottom:30px;
+}
 .contact-item { font-size: 1.1rem; margin-bottom: 20px; }
 .contact-item i { width: 30px; color: #FFF; }
 .portfolio-note {
