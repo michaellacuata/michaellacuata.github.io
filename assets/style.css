@@ -108,7 +108,7 @@ ul { list-style: none; }
 }
 .nav-contact-me:hover {
     background: #2563eb !important;
-    color:#FFF;
+    color:#FFF !important;
 }
 .navbar .container {
     display: flex;
