@@ -99,7 +99,16 @@ ul { list-style: none; }
     z-index: 1000;
 }
 .nav-contact-me {
-    bacground:#FFF;
+    background: #FFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-left: 30px;
+    border-radius: 5px;
+    color: #2563eb !important;
+}
+.nav-contact-me:hover {
+    background: #2563eb !important;
+    color:#FFF;
 }
 .navbar .container {
     display: flex;
