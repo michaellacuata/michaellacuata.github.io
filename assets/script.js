@@ -39,6 +39,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Dynamic Image Scroll on Hover Based on Image Height
+    const projectImages = document.querySelectorAll('.project-image');
+    
+    projectImages.forEach(container => {
+        const img = container.querySelector('img');
+        
+        // Wait for image to load before calculating dimensions
+        if (img.complete) {
+            calculateAndSetHoverScroll(container, img);
+        } else {
+            img.addEventListener('load', () => {
+                calculateAndSetHoverScroll(container, img);
+            });
+        }
+    });
+    
+    function calculateAndSetHoverScroll(container, img) {
+        const containerHeight = container.offsetHeight;
+        const imageHeight = img.naturalHeight;
+        
+        // Calculate the maximum scroll distance
+        const scrollDistance = imageHeight - containerHeight;
+        
+        if (scrollDistance > 0) {
+            // Add hover listener
+            container.addEventListener('mouseenter', () => {
+                img.style.top = `-${scrollDistance}px`;
+            });
+            
+            // Reset on mouse leave
+            container.addEventListener('mouseleave', () => {
+                img.style.top = '0px';
+            });
+        }
+    }
+
     // Project Details Modal Functionality
     const detailsButtons = document.querySelectorAll('.project-details-btn');
     const modals = document.querySelectorAll('.modal');

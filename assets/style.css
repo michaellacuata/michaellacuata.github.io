@@ -508,14 +508,12 @@ ul { list-style: none; }
     width: 100%;
     height: auto;
     display: block;
-    transition: ease-in-out 5s;
+    transition: ease-in-out 3s;
     position: relative;
     top: 0;
 }
 
-.project-image:hover img {
-    top: -170%;
-}
+/* Hover effect will be applied dynamically via JavaScript based on image height */
 
 .project-details-btn {
     position: absolute;
