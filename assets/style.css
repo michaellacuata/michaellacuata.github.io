@@ -853,7 +853,9 @@ form.contact-form {
     outline: none;
     border-color: var(--primary-color);
 }
-
+section#contact {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
 /* Footer */
 footer {
     background: var(--secondary-color);
