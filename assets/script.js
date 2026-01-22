@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function calculateAndSetHoverScroll(container, img) {
         const containerHeight = container.offsetHeight;
-        const imageHeight = img.naturalHeight;
+        const imageHeight = img.offsetHeight;
         
-        // Calculate the maximum scroll distance
+        // Calculate the maximum scroll distance based on rendered height
         const scrollDistance = imageHeight - containerHeight;
         
         if (scrollDistance > 0) {
