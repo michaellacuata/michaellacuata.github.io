@@ -822,7 +822,7 @@ ul { list-style: none; }
     border: 2px solid #2563eb;
     border-radius:5px;
 }
-form.contact-form {
+.form-wrapper {
     padding: 50px;
 }
 .contact-info {
