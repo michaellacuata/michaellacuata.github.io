@@ -192,7 +192,9 @@ ul { list-style: none; }
     position: relative;
     z-index: 1;
 }
-
+.about-content p {
+    margin-bottom:15px;
+}
 .highlight-years {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
