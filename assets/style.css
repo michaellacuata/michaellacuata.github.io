@@ -817,10 +817,19 @@ ul { list-style: none; }
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 0px;
     align-items: center;
+    border: 2px solid #2563eb;
+    border-radius:5px;
 }
-
+form.contact-form {
+    padding: 50px;
+}
+.contact-info {
+    background: #2563eb;
+    color: #FFF;
+    padding: 50px;
+}
 .contact-item { font-size: 1.1rem; margin-bottom: 20px; }
 .contact-item i { width: 30px; color: var(--primary-color); }
 .portfolio-note {
