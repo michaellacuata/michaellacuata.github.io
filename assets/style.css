@@ -834,12 +834,12 @@ ul { list-style: none; }
     border-radius:5px;
 }
 .contact-form-wrapper {
-    padding: 50px;
+    padding: 0 50px;
 }
 .contact-info {
     background: #2563eb;
     color: #FFF;
-    padding: 50px;
+        padding: 100px 50px;
 }
 .contact-item { font-size: 1.1rem; margin-bottom: 20px; }
 .contact-item i { width: 30px; color: var(--primary-color); }
