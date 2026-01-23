@@ -388,9 +388,13 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f1f5f9;
+    background: #2563eb;
     border-radius: 10px;
     font-size: 1.8rem;
+}
+
+.tool-icon img {
+       height: 40px; 
 }
 
 .tool-icon i {
