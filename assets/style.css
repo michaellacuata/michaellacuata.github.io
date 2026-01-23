@@ -343,9 +343,9 @@ ul { list-style: none; }
     align-items: center;
     gap: 20px;
     padding: 15px 25px;
-    background:#2563eb;
+    background: white;
     border-radius: 10px;
-    border: 1px solid #2563eb;
+    border: 1px solid #e2e8f0;
     transition: var(--transition);
     animation: slideInUp 0.5s ease-out forwards;
     opacity: 0;
@@ -388,7 +388,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    /* background: #2563eb; */
     border-radius: 10px;
     font-size: 1.8rem;
 }
