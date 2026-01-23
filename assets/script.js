@@ -112,3 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project image scroll on hover is handled by CSS
     // The .project-image:hover img selector in CSS handles the scroll effect
 });
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
