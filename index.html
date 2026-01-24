@@ -9,6 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const status = document.getElementById("form-status");
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Thanks! Your message has been sent.";
+      } else {
+        status.textContent = "Oops! Something went wrong.";
+      }
+    });
+  });
+});
+</script>
 </head>
 <body>
 
@@ -570,26 +595,5 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
     </footer>
 
     <script src="/assets/script.js"></script>
-    <script>
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const status = document.getElementById("form-status");
-
-  fetch(form.action, {
-    method: form.method,
-    body: new FormData(form),
-    headers: { "Accept": "application/json" }
-  }).then(response => {
-    if (response.ok) {
-      form.reset();
-      status.textContent = "Thanks! Your message has been sent.";
-    } else {
-      status.textContent = "Oops! Something went wrong.";
-    }
-  });
-});
-</script>
 </body>
 </html>
