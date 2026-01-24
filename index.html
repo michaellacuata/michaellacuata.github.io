@@ -544,18 +544,19 @@
                 <div class="contact-form-wrapper">
                     <h4>Do you have an idea or project in mind?
 Let’s chat, and I’ll help you turn your idea into reality.</h4>
-                <form action="https://formspree.io/f/mkojorzq" method="POST">
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+                <form class="contact-form" action="https://formspree.io/f/mkojorzq" method="POST">
+                    <!-- Note: This is a frontend template. You need a backend script or service like Formspree to make this work. -->
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
                 </div>
             </div>
         </div>
