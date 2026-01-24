@@ -557,6 +557,7 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
                     </div>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
+                <p id="form-status"></p>
                 </div>
             </div>
         </div>
@@ -569,5 +570,34 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
     </footer>
 
     <script src="/assets/script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Thanks! Your message has been sent.";
+      } else {
+        status.textContent = "Oops! Something went wrong.";
+      }
+    })
+    .catch(() => {
+      status.textContent = "Network error. Please try again.";
+    });
+  });
+});
+</script>
 </body>
 </html>
