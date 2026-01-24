@@ -557,34 +557,32 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
                     </div>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
-                <p id="form-status" style="display:none;"></p>
+               <div id="form-status"></div>
+                <script>
+                document.getElementById("contact-form").addEventListener("submit", function(e) {
+                e.preventDefault(); // ⬅️ THIS is critical
 
-                    <script>
-                    const form = document.getElementById("contact-form");
-                    const status = document.getElementById("form-status");
+                const form = e.target;
+                const status = document.getElementById("form-status");
 
-                    form.addEventListener("submit", async (e) => {
-                        e.preventDefault();
-
-                        const data = new FormData(form);
-                        const response = await fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                        });
-
-                        if (response.ok) {
-                        form.reset();
-                        status.style.display = "block";
-                        status.textContent = "Thanks! Your message has been sent.";
-                        } else {
-                        status.style.display = "block";
-                        status.textContent = "Oops! Something went wrong. Please try again.";
-                        }
-                    });
-                    </script>
+                fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                    'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                    form.reset();
+                    status.innerHTML = "<p>Thanks! Your message has been sent.</p>";
+                    } else {
+                    status.innerHTML = "<p>Oops! Something went wrong.</p>";
+                    }
+                }).catch(() => {
+                    status.innerHTML = "<p>Error submitting the form.</p>";
+                });
+                });
+                </script>
                 </div>
             </div>
         </div>
