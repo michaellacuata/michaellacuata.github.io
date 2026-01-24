@@ -558,31 +558,6 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
                <div id="form-status"></div>
-                <script>
-                document.getElementById("contact-form").addEventListener("submit", function(e) {
-                e.preventDefault(); // ⬅️ THIS is critical
-
-                const form = e.target;
-                const status = document.getElementById("form-status");
-
-                fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: {
-                    'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                    form.reset();
-                    status.innerHTML = "<p>Thanks! Your message has been sent.</p>";
-                    } else {
-                    status.innerHTML = "<p>Oops! Something went wrong.</p>";
-                    }
-                }).catch(() => {
-                    status.innerHTML = "<p>Error submitting the form.</p>";
-                });
-                });
-                </script>
                 </div>
             </div>
         </div>
@@ -595,5 +570,26 @@ Let’s chat, and I’ll help you turn your idea into reality.</h4>
     </footer>
 
     <script src="/assets/script.js"></script>
+    <script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("form-status");
+
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { "Accept": "application/json" }
+  }).then(response => {
+    if (response.ok) {
+      form.reset();
+      status.textContent = "Thanks! Your message has been sent.";
+    } else {
+      status.textContent = "Oops! Something went wrong.";
+    }
+  });
+});
+</script>
 </body>
 </html>
