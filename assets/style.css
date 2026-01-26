@@ -393,10 +393,6 @@ ul { list-style: none; }
     font-size: 1.8rem;
 }
 
-.tool-icon img {
-       height: 80px; 
-}
-
 .tool-icon i {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
