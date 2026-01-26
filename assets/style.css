@@ -1131,6 +1131,7 @@ footer {
     }
 
     .profile-pic {
+        max-height: 280px;
         max-width: 280px; /* Smaller image on mobile */
     }
 
