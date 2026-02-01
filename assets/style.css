@@ -877,6 +877,23 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .cta-group {
+    gap: 15px;
+    display: inline-grid;
+}
+.section-title {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+.tools-title {
+    font-size: 1.7rem;
+}
+.section {
+    padding: 30px 0;
+}
+.cta-group a.btn-secondary {
+    margin-left: 0 !important;
+}
     .nav-contact-me {
     background: #2563eb !important;
     margin-left: 0;
