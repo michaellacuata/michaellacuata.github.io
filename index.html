@@ -15,16 +15,16 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">
+            <a href="#" class="logo">
                 <span class="logo-bracket">&lt;</span>
                 MIKE<span class="logo-accent">DEV</span>
                 <span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link"><span class="nav-number">01.</span> Home</a></li>
-                <li><a href="#about" class="nav-link"><span class="nav-number">02.</span> About</a></li>
-                <li><a href="#skills" class="nav-link"><span class="nav-number">03.</span> Skills</a></li>
-                <li><a href="#projects" class="nav-link"><span class="nav-number">04.</span> Projects</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-contact-me">
                     <span class="btn-text">Contact Me</span>
                     <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
@@ -71,11 +71,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section about-section">
       <div class="code-icon-bg">
                     <i class="fas fa-code"></i>
                 </div>
         <div class="container">
+            <span class="section-label">ABOUT ME</span>
             <h2 class="section-title">Profile</h2>
             <div class="about-wrapper">
                 <div class="about-content">
@@ -104,8 +105,9 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section bg-light">
+    <section id="skills" class="section bg-light skills-section">
         <div class="container">
+            <span class="section-label">WHAT I DO</span>
             <h2 class="section-title">Technical Expertise</h2>
             <div class="skills-grid">
                 <!-- Core Dev -->
@@ -145,125 +147,157 @@
     </section>
 
     <!-- Tools Section -->
-    <section class="section">
+    <section class="section tools-section">
         <div class="container">
             <div class="tools-header">
-                <h2 class="tools-title">Tools I use to build reliable and scalable WordPress solutions</h2>
+                <span class="section-label">TECHNOLOGY STACK</span>
+                <h2 class="tools-title">Tools & Technologies I Master</h2>
+                <p class="tools-description">Building powerful, scalable solutions with industry-leading tools</p>
             </div>
             <div class="tools-grid">
 
-
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="WordPress">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/wordpress.png" alt="WordPress">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">WordPress</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="WooCommerce">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/woocommerce.png" alt="Woocommerce">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">WooCommerce</span>
                 </div>
 
-                 <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="PHP">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/php.png" alt="PHP">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">PHP</span>
                 </div>
 
-                 <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="MySQL">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/mysql.png" alt="MySQL">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">MySQL</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="jQuery">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/jquery.png" alt="jQuery">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">jQuery</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <img src="/images/tools/mysql.png" alt="MySQL">
+                <div class="tool-card" data-tooltip="JavaScript">
+                    <div class="tool-icon-wrapper">
+                        <img src="/images/tools/mysql.png" alt="JavaScript">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">JavaScript</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="cPanel">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/cpanel.png" alt="cPanel">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">cPanel</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="HTML5">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/html.png" alt="HTML">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">HTML5</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="CSS3">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/css.png" alt="CSS3">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">CSS3</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Divi Theme">
+                    <div class="tool-icon-wrapper">
                        <img src="/images/tools/divi.png" alt="Divi Theme">
+                       <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Divi</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Elementor">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/elementor.png" alt="Elementor">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Elementor</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="WPBakery">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/wpbakery.png" alt="WPBakery">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">WPBakery</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Figma">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/figma.png" alt="Figma">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Figma</span>
                 </div>
 
-
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Photoshop">
+                    <div class="tool-icon-wrapper">
                        <img src="/images/tools/photoshop.png" alt="Photoshop">
+                       <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Photoshop</span>
                 </div>
-                
-               
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="SEO Optimization">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/seo.png" alt="SEO">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">SEO</span>
                 </div>
 
-                
-
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="eDirectory">
+                    <div class="tool-icon-wrapper">
                         <img src="/images/tools/edirectory.png" alt="eDirectory">
+                        <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">eDirectory</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Wix">
+                    <div class="tool-icon-wrapper">
                        <img src="/images/tools/wix.png" alt="Wix">
+                       <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Wix</span>
                 </div>
 
-                <div class="tool-card">
-                    <div class="tool-icon">
+                <div class="tool-card" data-tooltip="Squarespace">
+                    <div class="tool-icon-wrapper">
                        <img src="/images/tools/squarespace.png" alt="Squarespace">
+                       <div class="tool-glow"></div>
                     </div>
+                    <span class="tool-name">Squarespace</span>
                 </div>
 
             </div>
@@ -644,32 +678,104 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
-            <h2 class="section-title">Let's Talk</h2>
+            <div class="contact-header">
+                <span class="section-label">GET IN TOUCH</span>
+                <h2 class="section-title">Let's Build Something Amazing Together</h2>
+                <p class="contact-subtitle">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+            </div>
+            
             <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2>Contact Details</h2>
-                    <p class="contact-item"><i class="fas fa-map-marker-alt"></i> Pangasinan, Philippines</p>
-                    <p class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:michaelangelolacuata022@gmail.com">michaelangelolacuata022@gmail.com</a></p>
-                    <p class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+639485643342">+63 948 564 3342</a></p>
+                <div class="contact-info-card">
+                    <div class="info-card-header">
+                        <div class="header-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h3>Contact Information</h3>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Pangasinan, Philippines</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:michaelangelolacuata022@gmail.com" class="contact-value">michaelangelolacuata022@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+639485643342" class="contact-value">+63 948 564 3342</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <p class="social-label">Follow me on</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-form-wrapper">
-                    <h4>Do you have an idea or project in mind?
-Let's chat, and I'll help you turn your idea into reality.</h4>
-<br>
-                <form class="contact-form" action="https://formspree.io/f/mkojorzq" method="POST">
-                    <!-- Note: This is a frontend template. You need a backend script or service like Formspree to make this work. -->
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                
+                <div class="contact-form-card">
+                    <div class="form-card-header">
+                        <h3>Send Me a Message</h3>
+                        <p>Fill out the form below and I'll get back to you within 24 hours</p>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-                <p id="form-status"></p>
+                    
+                    <form class="contact-form" action="https://formspree.io/f/mkojorzq" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" placeholder="Tell me about your project..." rows="6" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                    
+                    <p id="form-status" class="form-status"></p>
                 </div>
             </div>
         </div>
