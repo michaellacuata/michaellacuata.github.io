@@ -15,18 +15,28 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">MIKE<span>DEV</span></a>
+            <a href="#" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                MIKE<span class="logo-accent">DEV</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact" class="nav-contact-me">Contact Me</a></li>
+                <li><a href="#home" class="nav-link"><span class="nav-number">01.</span> Home</a></li>
+                <li><a href="#about" class="nav-link"><span class="nav-number">02.</span> About</a></li>
+                <li><a href="#skills" class="nav-link"><span class="nav-number">03.</span> Skills</a></li>
+                <li><a href="#projects" class="nav-link"><span class="nav-number">04.</span> Projects</a></li>
+                <li><a href="#contact" class="nav-contact-me">
+                    <span class="btn-text">Contact Me</span>
+                    <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                </a></li>
             </ul>
             <div class="hamburger">
-                <i class="fas fa-bars"></i>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </div>
         </div>
+        <div class="nav-indicator"></div>
     </nav>
 
 <!-- Hero Section -->
@@ -69,7 +79,7 @@
             <h2 class="section-title">Profile</h2>
             <div class="about-wrapper">
                 <div class="about-content">
-<p>I’m a WordPress Web Developer with over <span class="highlight-years">10 years</span> of experience building fast, secure, and scalable websites. I specialise in custom WordPress development — from hand-coded themes and custom functionality to performance optimisation and long-term maintenance.</p>
+<p>I'm a WordPress Web Developer with over <span class="highlight-years">10 years</span> of experience building fast, secure, and scalable websites. I specialise in custom WordPress development — from hand-coded themes and custom functionality to performance optimisation and long-term maintenance.</p>
 <p>With strong front-end and back-end expertise, I focus on clean code, best practices, and solutions that grow with the business. Whether working independently or alongside remote teams, I deliver reliable, high-quality WordPress websites that are built to perform.</p>
                 <div class="strengths-grid">
                     <div class="strength-card">
@@ -644,7 +654,7 @@
                 </div>
                 <div class="contact-form-wrapper">
                     <h4>Do you have an idea or project in mind?
-Let’s chat, and I’ll help you turn your idea into reality.</h4>
+Let's chat, and I'll help you turn your idea into reality.</h4>
 <br>
                 <form class="contact-form" action="https://formspree.io/f/mkojorzq" method="POST">
                     <!-- Note: This is a frontend template. You need a backend script or service like Formspree to make this work. -->
