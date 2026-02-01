@@ -877,6 +877,14 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .nav-contact-me {
+    background: #2563eb !important;
+    margin-left: 0;
+    color: #FFF !important;
+}
+    .nav-links a {
+        color:#000 !important
+    }
     .contact-info,
     .contact-form-wrapper{
         padding: 15px;
