@@ -1168,6 +1168,9 @@ ul { list-style: none; }
 }
 
 /* Contact */
+.contact-icon {
+    text-align: center;
+}
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
