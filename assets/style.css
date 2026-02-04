@@ -1811,6 +1811,7 @@ footer {
 }
 
 .contact-label {
+    text-align:left;
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
     font-weight: 600;
