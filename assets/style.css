@@ -24,8 +24,7 @@ body {
     color: var(--text-dark);
     scroll-behavior: smooth;
 }
-
-/* Custom animated cursor (enabled via JS) */
+. 
 .custom-cursor-active {
     cursor: none;
 }
