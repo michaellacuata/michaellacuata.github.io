@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 10));
 
     // ============================================
-    // CUSTOM MODERN CURSOR (dot + ring)
+    // CUSTOM MODERN CURSOR (dot + ring) - improved animation loop
     // ============================================
     (function initCustomCursor() {
         if (!window.matchMedia) return;
@@ -378,28 +378,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
+        let dotX = mouseX;
+        let dotY = mouseY;
         let ringX = mouseX;
         let ringY = mouseY;
+        let visible = false;
 
-        // immediate follow for the dot, smooth lag for the ring
+        // Track mouse position (cheap), rendering happens in rAF loop
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-            cursorDot.style.opacity = '1';
-            cursorRing.style.opacity = '1';
+            if (!visible) {
+                visible = true;
+                cursorDot.style.opacity = '1';
+                cursorRing.style.opacity = '1';
+            }
         });
 
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-            requestAnimationFrame(animateRing);
-        }
-        requestAnimationFrame(animateRing);
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+            cursorRing.style.opacity = '0';
+            visible = false;
+        });
 
-        // Hover state for interactive elements
-        const hoverTargets = 'a, button, .nav-link, .nav-contact-me, .btn-primary, .btn-secondary, input, textarea, label';
+        function render() {
+            // dot: almost immediate follow (higher lerp)
+            dotX += (mouseX - dotX) * 0.35;
+            dotY += (mouseY - dotY) * 0.35;
+
+            // ring: smoother, slower lag
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+
+            // center the elements using translate(-50%, -50%) so positions are accurate
+            cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+
+        // Hover state for interactive elements (exclude form fields to preserve text caret)
+        const hoverTargets = 'a, button, .nav-link, .nav-contact-me, .btn-primary, .btn-secondary, .hamburger, .tool-card';
         document.querySelectorAll(hoverTargets).forEach(el => {
             el.addEventListener('mouseenter', () => document.documentElement.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => document.documentElement.classList.remove('cursor-hover'));
