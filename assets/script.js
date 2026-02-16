@@ -358,5 +358,57 @@ document.addEventListener('DOMContentLoaded', () => {
         highlightNavigation();
     }, 10));
 
-    console.log('🚀 Modern navigation initialized successfully!');
+    // ============================================
+    // CUSTOM MODERN CURSOR (dot + ring)
+    // ============================================
+    (function initCustomCursor() {
+        if (!window.matchMedia) return;
+        // skip on touch / coarse pointers
+        if (('ontouchstart' in window) || !window.matchMedia('(pointer: fine)').matches) return;
+
+        const cursorDot = document.createElement('div');
+        const cursorRing = document.createElement('div');
+        cursorDot.className = 'cursor-dot';
+        cursorRing.className = 'cursor-ring';
+
+        document.body.appendChild(cursorRing);
+        document.body.appendChild(cursorDot);
+
+        document.documentElement.classList.add('custom-cursor-active');
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        // immediate follow for the dot, smooth lag for the ring
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            cursorDot.style.opacity = '1';
+            cursorRing.style.opacity = '1';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+            requestAnimationFrame(animateRing);
+        }
+        requestAnimationFrame(animateRing);
+
+        // Hover state for interactive elements
+        const hoverTargets = 'a, button, .nav-link, .nav-contact-me, .btn-primary, .btn-secondary, input, textarea, label';
+        document.querySelectorAll(hoverTargets).forEach(el => {
+            el.addEventListener('mouseenter', () => document.documentElement.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.documentElement.classList.remove('cursor-hover'));
+        });
+
+        // Press state
+        document.addEventListener('mousedown', () => document.documentElement.classList.add('cursor-pressed'));
+        document.addEventListener('mouseup', () => document.documentElement.classList.remove('cursor-pressed'));
+    })();
+
+    console.log('🚀 Modern navigation and custom cursor initialized successfully!');
 });
