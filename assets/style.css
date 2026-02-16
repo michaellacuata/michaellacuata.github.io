@@ -671,10 +671,6 @@ ul { list-style: none; }
     font-size: 1.1rem;
 }
 
-#experience {
-    display: none;
-}
-
 /* Tools Section */
 .tools-header {
     text-align: center;
