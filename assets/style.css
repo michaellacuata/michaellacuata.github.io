@@ -1657,6 +1657,276 @@ footer {
 }
 
 /* ============================================
+   MODERN EXPERIENCE SECTION
+   ============================================ */
+
+.experience-section {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-section .section-label,
+.experience-section .section-title {
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+    opacity: 0.8;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Featured Experience Card */
+.experience-card-featured {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-card-featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.experience-card-featured:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.experience-card-featured:hover::before {
+    opacity: 1;
+}
+
+.experience-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.1);
+}
+
+.experience-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.experience-badge.latest {
+    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.experience-company {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.experience-period {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.experience-content {
+    position: relative;
+    z-index: 1;
+}
+
+.experience-description {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.experience-responsibilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.responsibility-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.responsibility-item:hover {
+    background: rgba(37, 99, 235, 0.1);
+    transform: translateX(5px);
+}
+
+.responsibility-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.responsibility-text h4 {
+    font-size: 1.05rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.responsibility-text p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.experience-achievements {
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(168, 85, 247, 0.05));
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.experience-achievements h4 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.experience-achievements ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.experience-achievements li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.experience-achievements i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* Experience Timeline */
+.experience-timeline {
+    display: grid;
+    gap: 30px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary-color), var(--neon-purple));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateX(5px);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -73px;
+    top: 35px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    width: 20px;
+    height: 20px;
+    left: -75px;
+    top: 33px;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.timeline-content h4 {
+    font-size: 1.15rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.timeline-content p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* ============================================
    MODERN CONTACT SECTION
    ============================================ */
 
@@ -2226,6 +2496,57 @@ footer {
 
 /* Modal Responsive */
 @media (max-width: 768px) {
+    /* Experience Section Responsive */
+    .experience-card-featured {
+        padding: 30px 20px;
+    }
+
+    .experience-company {
+        font-size: 1.4rem;
+    }
+
+    .experience-responsibilities {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .responsibility-item {
+        padding: 15px;
+    }
+
+    .experience-timeline {
+        padding-left: 25px;
+    }
+
+    .experience-timeline::before {
+        left: 0px;
+    }
+
+    .timeline-marker {
+        left: -50px;
+    }
+
+    .timeline-item:hover .timeline-marker {
+        left: -50px;
+    }
+
+    .timeline-item {
+        padding: 20px 15px;
+    }
+
+    .timeline-content h4 {
+        font-size: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+
+    .experience-achievements ul {
+        grid-template-columns: 1fr;
+    }
+
+    /* Modern Modal */
     .modern-modal {
         width: 100%;
         max-height: 95vh;
