@@ -25,6 +25,75 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Custom animated cursor (enabled via JS) */
+.custom-cursor-active {
+    cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.9);
+}
+
+.cursor-ring {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 212, 255, 0.6);
+    background: transparent;
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.12);
+}
+
+/* Hover state when over interactive elements */
+.cursor-hover .cursor-ring {
+    transform: translate(-50%, -50%) scale(1.6) !important;
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+.cursor-hover .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.6) !important;
+    background: var(--neon-purple);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.9);
+}
+
+/* Pressed state */
+.cursor-pressed .cursor-ring {
+    transform: translate(-50%, -50%) scale(0.9) !important;
+    opacity: 0.8 !important;
+}
+
+/* Keep native cursor for text inputs for accessibility */
+.custom-cursor-active input,
+.custom-cursor-active textarea,
+.custom-cursor-active select {
+    cursor: text !important;
+}
+
+/* Keep native pointer for interactive controls so users get expected cursor over them */
+.custom-cursor-active a,
+.custom-cursor-active button,
+.custom-cursor-active label,
+.custom-cursor-active summary {
+    cursor: pointer !important;
+}
+
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
