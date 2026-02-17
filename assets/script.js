@@ -196,11 +196,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // PROJECT FILTER FUNCTIONALITY
+    // PROJECT FILTER FUNCTIONALITY WITH PAGINATION
     // ============================================
     
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const paginationContainer = document.getElementById('pagination');
+    const projectsPerPage = 15;
+    let currentPage = 1;
+    let currentFilter = 'all';
+
+    // Initialize pagination on page load
+    updateProjectsDisplay();
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -210,25 +217,102 @@ document.addEventListener('DOMContentLoaded', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
-            // Filter projects
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                
-                if (filterValue === 'all' || category === filterValue) {
-                    card.classList.remove('hidden');
-                    // Trigger animation on show
-                    setTimeout(() => {
-                        card.style.animation = 'none';
-                        setTimeout(() => {
-                            card.style.animation = '';
-                        }, 10);
-                    }, 10);
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+            currentFilter = filterValue;
+            currentPage = 1; // Reset to first page when filtering
+            updateProjectsDisplay();
         });
     });
+
+    function updateProjectsDisplay() {
+        // Get all visible projects based on current filter
+        const visibleCards = Array.from(projectCards).filter(card => {
+            if (currentFilter === 'all') return true;
+            const category = card.getAttribute('data-category');
+            return category === currentFilter;
+        });
+
+        // Calculate pagination
+        const totalPages = Math.ceil(visibleCards.length / projectsPerPage);
+        const startIndex = (currentPage - 1) * projectsPerPage;
+        const endIndex = startIndex + projectsPerPage;
+
+        // Hide all cards first
+        projectCards.forEach(card => card.classList.add('hidden'));
+
+        // Show only cards for current page
+        visibleCards.slice(startIndex, endIndex).forEach(card => {
+            card.classList.remove('hidden');
+        });
+
+        // Update pagination buttons
+        renderPagination(totalPages, visibleCards.length);
+    }
+
+    function renderPagination(totalPages, totalProjects) {
+        paginationContainer.innerHTML = '';
+
+        if (totalPages <= 1) return;
+
+        // Previous button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'pagination-btn';
+        if (currentPage === 1) prevBtn.disabled = true;
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateProjectsDisplay();
+                scrollToProjects();
+            }
+        });
+        paginationContainer.appendChild(prevBtn);
+
+        // Page number buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
+            pageBtn.textContent = i;
+            pageBtn.addEventListener('click', () => {
+                currentPage = i;
+                updateProjectsDisplay();
+                scrollToProjects();
+            });
+            paginationContainer.appendChild(pageBtn);
+        }
+
+        // Next button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'pagination-btn';
+        if (currentPage === totalPages) nextBtn.disabled = true;
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateProjectsDisplay();
+                scrollToProjects();
+            }
+        });
+        paginationContainer.appendChild(nextBtn);
+
+        // Info text
+        const startNum = (currentPage - 1) * projectsPerPage + 1;
+        const endNum = Math.min(currentPage * projectsPerPage, totalProjects);
+        const infoSpan = document.createElement('span');
+        infoSpan.className = 'pagination-info';
+        infoSpan.textContent = `Showing ${startNum}-${endNum} of ${totalProjects}`;
+        paginationContainer.appendChild(infoSpan);
+    }
+
+    function scrollToProjects() {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            const offset = projectsSection.offsetTop - 100;
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+            });
+        }
+    }
 
     // ============================================
     // INTERSECTION OBSERVER FOR ANIMATIONS
