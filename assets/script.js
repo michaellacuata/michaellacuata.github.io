@@ -239,9 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide all cards first
         projectCards.forEach(card => card.classList.add('hidden'));
 
-        // Show only cards for current page
-        visibleCards.slice(startIndex, endIndex).forEach(card => {
+        // Show only cards for current page with animation
+        visibleCards.slice(startIndex, endIndex).forEach((card, index) => {
             card.classList.remove('hidden');
+            // Reset animation by removing and re-adding the animation
+            card.style.animation = 'none';
+            setTimeout(() => {
+                card.style.animation = '';
+            }, 10);
         });
 
         // Update pagination buttons
