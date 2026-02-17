@@ -540,6 +540,15 @@
         <div class="container">
             <div class="projects-header">
                     <h2 class="projects-title">Showcasing recent WordPress projects</h2>
+                    <div class="projects-filter">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="service">Service-Based</button>
+                        <button class="filter-btn" data-filter="woocommerce">WooCommerce</button>
+                        <button class="filter-btn" data-filter="booking">Booking/Appointments</button>
+                        <button class="filter-btn" data-filter="blog">Blog</button>
+                        <button class="filter-btn" data-filter="directory">Directory/Portfolio</button>
+                        <button class="filter-btn" data-filter="nonprofit">Non-Profit</button>
+                    </div>
             </div>
 
             <div class="projects-grid">
@@ -708,17 +717,198 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="service">
                     <div class="project-image">
                         <img src="/images/projects/cre.png" alt="CRE Website">
                         <button class="project-details-btn" data-project="cre">View Details</button>
                     </div>
                     <div class="project-info">
+                        <span class="project-category">Service-Based</span>
                         <h3>Cameron Rutledge Electrical</h3>
                         <a href="https://cameronrutledge.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- New Projects -->
+                <div class="project-card" data-category="nonprofit">
+                    <div class="project-image">
+                        <img src="/images/projects/huey-project.png" alt="Huey Project Website">
+                        <button class="project-details-btn" data-project="huey-project">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Non-Profit</span>
+                        <h3>Huey Project</h3>
+                        <a href="https://hueyproject.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="woocommerce">
+                    <div class="project-image">
+                        <img src="/images/projects/shoalhaven-chef.png" alt="Shoalhaven Chef Website">
+                        <button class="project-details-btn" data-project="shoalhaven-chef">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">WooCommerce</span>
+                        <h3>Shoalhaven Chef</h3>
+                        <a href="https://shoalhavenchef.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="service">
+                    <div class="project-image">
+                        <img src="/images/projects/rigney-accountants.png" alt="Rigney Accountants Website">
+                        <button class="project-details-btn" data-project="rigney-accountants">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Service-Based</span>
+                        <h3>Rigney Accountants</h3>
+                        <a href="https://rigneyaccountants.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="woocommerce">
+                    <div class="project-image">
+                        <img src="/images/projects/meat-home-delivery.png" alt="The Meat Home Delivery Co Website">
+                        <button class="project-details-btn" data-project="meat-home-delivery">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">WooCommerce</span>
+                        <h3>The Meat Home Delivery Co</h3>
+                        <a href="https://themeathomedeliveryco.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="woocommerce">
+                    <div class="project-image">
+                        <img src="/images/projects/worldmaxtv.png" alt="WorldMax TV Website">
+                        <button class="project-details-btn" data-project="worldmaxtv">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">WooCommerce</span>
+                        <h3>WorldMax TV</h3>
+                        <a href="https://worldmaxtv.com/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="directory">
+                    <div class="project-image">
+                        <img src="/images/projects/appalachian-iron.png" alt="Appalachian Iron Website">
+                        <button class="project-details-btn" data-project="appalachian-iron">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Directory/Portfolio</span>
+                        <h3>Appalachian Iron</h3>
+                        <a href="https://appalachianiron.com/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="service">
+                    <div class="project-image">
+                        <img src="/images/projects/seedselc.png" alt="SEEDS ELC Website">
+                        <button class="project-details-btn" data-project="seeds-elc">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Service-Based</span>
+                        <h3>SEEDS ELC</h3>
+                        <a href="https://seedselc.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="service">
+                    <div class="project-image">
+                        <img src="/images/projects/egmont-electrical.png" alt="Egmont Electrical Website">
+                        <button class="project-details-btn" data-project="egmont-electrical">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Service-Based</span>
+                        <h3>Egmont Electrical</h3>
+                        <a href="https://egmontelectrical.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="service">
+                    <div class="project-image">
+                        <img src="/images/projects/goodman-solutions.png" alt="Goodman Solutions Website">
+                        <button class="project-details-btn" data-project="goodman-solutions">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Service-Based</span>
+                        <h3>Goodman Solutions</h3>
+                        <a href="https://www.goodman-solutions.com/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="directory">
+                    <div class="project-image">
+                        <img src="/images/projects/craftbrews-ph.png" alt="Craft Brews PH Website">
+                        <button class="project-details-btn" data-project="craftbrews-ph">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Directory/Portfolio</span>
+                        <h3>Craft Brews PH</h3>
+                        <a href="https://craftbrews.ph/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="woocommerce">
+                    <div class="project-image">
+                        <img src="/images/projects/craftbrews-online.png" alt="Craft Brews Online Website">
+                        <button class="project-details-btn" data-project="craftbrews-online">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">WooCommerce</span>
+                        <h3>Craft Brews Online</h3>
+                        <a href="https://craftbrews.online/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="directory">
+                    <div class="project-image">
+                        <img src="/images/projects/hkaba.png" alt="HKABA Website">
+                        <button class="project-details-btn" data-project="hkaba">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Directory/Portfolio</span>
+                        <h3>HKABA</h3>
+                        <a href="https://hkaba.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="blog">
+                    <div class="project-image">
+                        <img src="/images/projects/kandisunsetbar.png" alt="Kandi Sunset Bar Website">
+                        <button class="project-details-btn" data-project="kandisunsetbar">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Blog</span>
+                        <h3>Kandi Sunset Bar</h3>
+                        <a href="https://kandisunsetbar.com/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="service">
+                    <div class="project-image">
+                        <img src="/images/projects/asesn.png" alt="ASESN Website">
+                        <button class="project-details-btn" data-project="asesn">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Service-Based</span>
+                        <h3>ASESN</h3>
+                        <a href="https://asesn.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="woocommerce">
+                    <div class="project-image">
+                        <img src="/images/projects/perth-marine-electrical.png" alt="Perth Marine Electrical Website">
+                        <button class="project-details-btn" data-project="perth-marine-electrical">View Details</button>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">WooCommerce</span>
+                        <h3>Perth Marine Electrical</h3>
+                        <a href="https://www.perthmarineelectrical.com.au/" target="_blank" class="project-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -1241,6 +1431,677 @@
                     <div class="modal-role-badge">Full-stack Development</div>
                 </div>
                 <a href="https://cameronrutledge.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Project Modals -->
+
+    <!-- Huey Project Modal -->
+    <div id="huey-project" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/huey-project.png" alt="Huey Project" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Huey Project</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">A fundraising initiative by the Shoalhaven Sub-Branch of the Vietnam Veterans Association to restore a historic UH-1H Huey helicopter (A2-703) to flying status as a mobile monument honoring Vietnam Veterans.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Donation tracking and contributor recognition</li>
+                        <li>Helicopter restoration progress updates</li>
+                        <li>Event information for viewing the restored aircraft</li>
+                        <li>Tax-deductible donation options</li>
+                        <li>Historical information about the Huey and Vietnam War</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Contact Forms</span>
+                        <span class="tech-badge">Social media integration</span>
+                        <span class="tech-badge">Responsive design</span>
+                    </div>
+                </div>
+                <a href="https://hueyproject.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shoalhaven Chef Modal -->
+    <div id="shoalhaven-chef" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/shoalhaven-chef.png" alt="Shoalhaven Chef" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Shoalhaven Chef</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">A home meal delivery service providing chef-cooked, nutritious meals designed to help seniors and clients maintain independence through convenient, wholesome food delivery.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Online meal ordering system</li>
+                        <li>Multiple meal categories (mains, soups, desserts, sides, omelettes)</li>
+                        <li>Direct delivery scheduling</li>
+                        <li>Contact and order management</li>
+                        <li>Meals designed for specific dietary needs</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">WooCommerce</span>
+                        <span class="tech-badge">E-commerce system</span>
+                        <span class="tech-badge">Email integration</span>
+                    </div>
+                </div>
+                <a href="https://shoalhavenchef.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rigney Accountants Modal -->
+    <div id="rigney-accountants" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/rigney-accountants.png" alt="Rigney Accountants" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Rigney Accountants</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Professional accounting firm offering comprehensive tax, bookkeeping, and financial advisory services for individuals, businesses, and not-for-profit organizations in the Shoalhaven region.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Multiple service offerings (accounting, taxation, bookkeeping, superannuation)</li>
+                        <li>Client-specific solutions (tradies, medical professionals, not-for-profits)</li>
+                        <li>FAQ section for common questions</li>
+                        <li>Office locations in Bomaderry and Sydney</li>
+                        <li>Contact and consultation request forms</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Contact Forms</span>
+                        <span class="tech-badge">Document downloads</span>
+                        <span class="tech-badge">Responsive design</span>
+                    </div>
+                </div>
+                <a href="https://rigneyaccountants.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Meat Home Delivery Co Modal -->
+    <div id="meat-home-delivery" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/meat-home-delivery.png" alt="The Meat Home Delivery Co" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">The Meat Home Delivery Co</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Fresh meat home delivery service supplying high-quality beef, lamb, pork, and goat from Picton Abattoir directly to customers in Wollondilly, Camden, and Wollongong regions.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Online shop with product categories for different meat types</li>
+                        <li>Weekly delivery scheduling</li>
+                        <li>Direct abattoir connection for freshness</li>
+                        <li>Custom meat selections</li>
+                        <li>Delivery location tracking</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WooCommerce</span>
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Payment processing</span>
+                        <span class="tech-badge">Inventory management</span>
+                    </div>
+                </div>
+                <a href="https://themeathomedeliveryco.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WorldMax TV Modal -->
+    <div id="worldmaxtv" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/worldmaxtv.png" alt="WorldMax TV" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">WorldMax TV</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Digital television service providing streaming of Indian, Pakistani, and Nepalese TV channels through proprietary set-top boxes with high-definition quality and international availability.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Product sales (6PRO set-top boxes, remotes, adapters)</li>
+                        <li>100+ Indian TV channels without satellite</li>
+                        <li>Multiple resolution quality options</li>
+                        <li>Time-shift functionality for different time zones</li>
+                        <li>24/7 customer support</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WooCommerce</span>
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Streaming technology</span>
+                        <span class="tech-badge">Multi-channel support</span>
+                    </div>
+                </div>
+                <a href="https://worldmaxtv.com/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appalachian Iron Modal -->
+    <div id="appalachian-iron" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/appalachian-iron.png" alt="Appalachian Iron" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Appalachian Iron</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Development of a pioneering zero-carbon pig iron plant in the USA using HIsmelt technology, designed to produce low-cost, high-purity pig iron with significant environmental benefits.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Detailed technology explanations and diagrams</li>
+                        <li>Environmental impact comparisons with traditional blast furnaces</li>
+                        <li>Historical development timeline</li>
+                        <li>Operational case studies from China and Australia</li>
+                        <li>Contact and inquiry forms</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Technical documentation</span>
+                        <span class="tech-badge">Image galleries</span>
+                        <span class="tech-badge">Contact forms</span>
+                    </div>
+                </div>
+                <a href="https://appalachianiron.com/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEEDS ELC Modal -->
+    <div id="seeds-elc" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/seedselc.png" alt="SEEDS ELC" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">SEEDS ELC</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Early learning and childcare center providing developmentally appropriate programs and play-based learning for children across multiple centers in Perth, Western Australia.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Multiple center locations</li>
+                        <li>Curriculum information and philosophy</li>
+                        <li>Child Care Subsidy calculator</li>
+                        <li>Enrollment information</li>
+                        <li>Parent handbook downloads</li>
+                        <li>Contact and inquiry system</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Document downloads</span>
+                        <span class="tech-badge">Contact forms</span>
+                        <span class="tech-badge">Location mapping</span>
+                    </div>
+                </div>
+                <a href="https://seedselc.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Egmont Electrical Modal -->
+    <div id="egmont-electrical" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/egmont-electrical.png" alt="Egmont Electrical" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Egmont Electrical</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Professional electrical contracting company serving domestic, commercial, and light industrial clients throughout Perth and regional Western Australia with comprehensive electrical services.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Service categories (domestic, commercial, industrial)</li>
+                        <li>Project gallery showcasing completed work</li>
+                        <li>Detailed service list with specific offerings</li>
+                        <li>Team qualifications emphasis</li>
+                        <li>Direct contact options</li>
+                        <li>Blog content for electrical tips</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Project portfolio</span>
+                        <span class="tech-badge">Photo galleries</span>
+                        <span class="tech-badge">Blog functionality</span>
+                    </div>
+                </div>
+                <a href="https://egmontelectrical.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goodman Solutions Modal -->
+    <div id="goodman-solutions" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/goodman-solutions.png" alt="Goodman Solutions" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Goodman Solutions</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Conflict resolution and leadership coaching practice offering mediation, conflict management training, and professional development based on a 35-year Critical Response Approach Model.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Service offerings (conflict resolution, mediation, leadership coaching)</li>
+                        <li>Critical Response Approach Model framework</li>
+                        <li>Blog content on conflict resolution topics</li>
+                        <li>FAQ section</li>
+                        <li>Contact and consultation requests</li>
+                        <li>Professional credentials and background</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Blog functionality</span>
+                        <span class="tech-badge">Contact forms</span>
+                        <span class="tech-badge">Document downloads</span>
+                    </div>
+                </div>
+                <a href="https://www.goodman-solutions.com/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Craft Brews PH Modal -->
+    <div id="craftbrews-ph" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/craftbrews-ph.png" alt="Craft Brews PH" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Craft Brews PH</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Philippine craft beer distribution company providing craft beers, commercial beers, and sake by keg to bars and restaurants, showcasing local microbreweries with keg delivery and equipment rental.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Microbrewery directory with descriptions</li>
+                        <li>Featured craft beers showcase</li>
+                        <li>Draft beer availability listings</li>
+                        <li>Kegerator equipment and supplies</li>
+                        <li>Commercial beer selections</li>
+                        <li>Sake collection from Japan</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Directory system</span>
+                        <span class="tech-badge">Product listings</span>
+                        <span class="tech-badge">Contact forms</span>
+                    </div>
+                </div>
+                <a href="https://craftbrews.ph/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Craft Brews Online Modal -->
+    <div id="craftbrews-online" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/craftbrews-online.png" alt="Craft Brews Online" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Craft Brews Online</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Online retail store selling premium craft beers, ciders, and Japanese sake to consumers with reliable delivery service and curated selection from international and local breweries.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Product catalog (beers, ciders, sake)</li>
+                        <li>Product descriptions with ABV information</li>
+                        <li>Pricing and pack sizes</li>
+                        <li>Online shopping cart system</li>
+                        <li>Account login functionality</li>
+                        <li>Delivery policy information</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WooCommerce</span>
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Payment processing</span>
+                        <span class="tech-badge">User account system</span>
+                    </div>
+                </div>
+                <a href="https://craftbrews.online/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HKABA Modal -->
+    <div id="hkaba" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/hkaba.png" alt="HKABA" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">HKABA</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">The Hong Kong-Australia Business Association facilitates networking and business opportunities between Hong Kong and Australian companies, providing member benefits and organizing events.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Member benefits program</li>
+                        <li>Event calendar and registration</li>
+                        <li>Chapter structure for different states</li>
+                        <li>Board of directors information</li>
+                        <li>AGM minutes and financial reports</li>
+                        <li>FAQ section</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Membership system</span>
+                        <span class="tech-badge">Event registration</span>
+                        <span class="tech-badge">Document management</span>
+                    </div>
+                </div>
+                <a href="https://hkaba.com.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kandi Sunset Bar Modal -->
+    <div id="kandisunsetbar" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/kandisunsetbar.png" alt="Kandi Sunset Bar" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Kandi Sunset Bar</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">An upscale rooftop bar and pizzeria in Angeles City, Philippines, offering craft beers, wine, cocktails, and Italian pizza in an elevated venue with scenic mountain views.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Extensive beverage menu (beers, wines, ciders, cocktails)</li>
+                        <li>Food menu (24-hour fermented dough pizza, Filipino pulutan dishes)</li>
+                        <li>Table reservation system</li>
+                        <li>Event hosting capabilities</li>
+                        <li>Monthly darts tournament</li>
+                        <li>Social media integration</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Reservation system</span>
+                        <span class="tech-badge">Image galleries</span>
+                        <span class="tech-badge">Social media integration</span>
+                    </div>
+                </div>
+                <a href="https://kandisunsetbar.com/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ASESN Modal -->
+    <div id="asesn" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/asesn.png" alt="ASESN" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">ASESN</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">Australian Ship Engineering Services Network provides comprehensive marine engineering and ship repair services across Australia including electrical systems, generators, HVAC, and instrumentation.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Service offerings (electrical, generators, instrumentation, HVAC)</li>
+                        <li>National service coverage</li>
+                        <li>Engineering expertise for commercial vessels</li>
+                        <li>Contact form for inquiries</li>
+                        <li>Company information and credentials</li>
+                        <li>ABN and registration details</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Contact forms</span>
+                        <span class="tech-badge">Service descriptions</span>
+                        <span class="tech-badge">Responsive design</span>
+                    </div>
+                </div>
+                <a href="https://asesn.au/" target="_blank" class="btn-primary modal-visit-btn">
+                    <span class="btn-text">Visit Live Site</span>
+                    <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Perth Marine Electrical Modal -->
+    <div id="perth-marine-electrical" class="modal">
+        <div class="modal-content modern-modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-project-header">
+                <img src="/images/projects/perth-marine-electrical.png" alt="Perth Marine Electrical" class="modal-project-image">
+            </div>
+            <div class="modal-project-body">
+                <h2 class="modal-project-title">Perth Marine Electrical</h2>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Project Overview</h3>
+                    <p class="modal-description">A family-owned marine electrical contractor providing design, installation, and maintenance of marine electrical systems for commercial vessels along the Western Australian coast.</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Features</h3>
+                    <ul class="modal-features-list">
+                        <li>Comprehensive service menu (generator repairs, solar installations, marine electronics)</li>
+                        <li>Product catalog and brands</li>
+                        <li>Gallery of completed projects</li>
+                        <li>Online booking system</li>
+                        <li>Multiple service locations</li>
+                        <li>Equipment sales and supplies</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">My Role</h3>
+                    <div class="modal-role-badge">Full-stack Development</div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Technologies Used</h3>
+                    <div class="modal-tech-stack">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">WooCommerce</span>
+                        <span class="tech-badge">Online booking</span>
+                        <span class="tech-badge">Project gallery</span>
+                    </div>
+                </div>
+                <a href="https://www.perthmarineelectrical.com.au/" target="_blank" class="btn-primary modal-visit-btn">
                     <span class="btn-text">Visit Live Site</span>
                     <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
                 </a>

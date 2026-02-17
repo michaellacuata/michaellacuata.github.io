@@ -196,6 +196,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
+    // PROJECT FILTER FUNCTIONALITY
+    // ============================================
+    
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || category === filterValue) {
+                    card.classList.remove('hidden');
+                    // Trigger animation on show
+                    setTimeout(() => {
+                        card.style.animation = 'none';
+                        setTimeout(() => {
+                            card.style.animation = '';
+                        }, 10);
+                    }, 10);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // ============================================
     // INTERSECTION OBSERVER FOR ANIMATIONS
     // ============================================
     
