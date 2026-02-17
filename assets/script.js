@@ -134,31 +134,40 @@ document.addEventListener('DOMContentLoaded', () => {
         
         projectImages.forEach(container => {
             const img = container.querySelector('img');
-            // Skip if already initialized
-            if (container.getAttribute('data-scroll-initialized') === 'true') return;
+            if (!img) return;
+            
+            // Remove any existing listeners by cloning and replacing
+            const newContainer = container.cloneNode(true);
+            container.parentNode.replaceChild(newContainer, container);
+            
+            // Get the fresh references
+            const freshContainer = newContainer;
+            const freshImg = freshContainer.querySelector('img');
             
             function attachHoverListeners() {
-                const containerHeight = container.offsetHeight;
-                const imageHeight = img.offsetHeight;
+                // Only attach if the card is visible
+                const card = freshContainer.closest('.project-card');
+                if (card && card.classList.contains('hidden')) return;
+                
+                const containerHeight = freshContainer.offsetHeight;
+                const imageHeight = freshImg.offsetHeight;
                 const scrollDistance = imageHeight - containerHeight;
                 
                 if (scrollDistance > 0) {
-                    container.setAttribute('data-scroll-initialized', 'true');
-                    
-                    container.addEventListener('mouseenter', () => {
-                        img.style.top = `-${scrollDistance}px`;
+                    freshContainer.addEventListener('mouseenter', () => {
+                        freshImg.style.top = `-${scrollDistance}px`;
                     });
                     
-                    container.addEventListener('mouseleave', () => {
-                        img.style.top = '0px';
+                    freshContainer.addEventListener('mouseleave', () => {
+                        freshImg.style.top = '0px';
                     });
                 }
             }
             
-            if (img.complete) {
+            if (freshImg.complete) {
                 attachHoverListeners();
             } else {
-                img.addEventListener('load', attachHoverListeners);
+                freshImg.addEventListener('load', attachHoverListeners);
             }
         });
     }
@@ -174,21 +183,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // PROJECT DETAILS MODAL
     // ============================================
     
-    const detailsButtons = document.querySelectorAll('.project-details-btn');
-    const modals = document.querySelectorAll('.modal');
-    const closeButtons = document.querySelectorAll('.modal-close');
-
-    detailsButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
+    // Use event delegation for dynamically shown/hidden projects
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('project-details-btn')) {
             e.preventDefault();
-            const projectId = button.getAttribute('data-project');
+            const projectId = e.target.getAttribute('data-project');
             const modal = document.getElementById(projectId);
             if (modal) {
                 modal.classList.add('active');
                 body.style.overflow = 'hidden';
             }
-        });
+        }
     });
+
+    const closeButtons = document.querySelectorAll('.modal-close');
+    const modals = document.querySelectorAll('.modal');
 
     closeButtons.forEach(closeBtn => {
         closeBtn.addEventListener('click', () => {
@@ -263,6 +272,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update pagination buttons
         renderPagination(totalPages, visibleCards.length);
+        
+        // Re-initialize hover scroll for newly visible projects
+        setTimeout(() => {
+            initializeHoverScroll();
+        }, 100);
     }
 
     function renderPagination(totalPages, totalProjects) {
