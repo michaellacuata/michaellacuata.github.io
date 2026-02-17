@@ -129,41 +129,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     
     function initializeHoverScroll() {
-        const projectImages = document.querySelectorAll('.project-image:not(.hidden)');
+        // Select all project images regardless of visibility
+        const projectImages = document.querySelectorAll('.project-image');
         
         projectImages.forEach(container => {
             const img = container.querySelector('img');
-            // Check if already initialized
-            if (container.getAttribute('data-scroll-initialized')) return;
+            // Skip if already initialized
+            if (container.getAttribute('data-scroll-initialized') === 'true') return;
+            
+            function attachHoverListeners() {
+                const containerHeight = container.offsetHeight;
+                const imageHeight = img.offsetHeight;
+                const scrollDistance = imageHeight - containerHeight;
+                
+                if (scrollDistance > 0) {
+                    container.setAttribute('data-scroll-initialized', 'true');
+                    
+                    container.addEventListener('mouseenter', () => {
+                        img.style.top = `-${scrollDistance}px`;
+                    });
+                    
+                    container.addEventListener('mouseleave', () => {
+                        img.style.top = '0px';
+                    });
+                }
+            }
             
             if (img.complete) {
-                calculateAndSetHoverScroll(container, img);
+                attachHoverListeners();
             } else {
-                img.addEventListener('load', () => {
-                    calculateAndSetHoverScroll(container, img);
-                });
+                img.addEventListener('load', attachHoverListeners);
             }
         });
     }
     
-    function calculateAndSetHoverScroll(container, img) {
-        const containerHeight = container.offsetHeight;
-        const imageHeight = img.offsetHeight;
-        const scrollDistance = imageHeight - containerHeight;
-        
-        if (scrollDistance > 0) {
-            container.setAttribute('data-scroll-initialized', 'true');
-            container.addEventListener('mouseenter', () => {
-                img.style.top = `-${scrollDistance}px`;
-            });
-            
-            container.addEventListener('mouseleave', () => {
-                img.style.top = '0px';
-            });
-        }
+    // Initialize on page load and after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeHoverScroll);
+    } else {
+        initializeHoverScroll();
     }
-    
-    initializeHoverScroll();
 
     // ============================================
     // PROJECT DETAILS MODAL
@@ -258,9 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update pagination buttons
         renderPagination(totalPages, visibleCards.length);
-        
-        // Re-initialize hover scroll for newly visible cards
-        initializeHoverScroll();
     }
 
     function renderPagination(totalPages, totalProjects) {
