@@ -128,19 +128,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // PROJECT IMAGE DYNAMIC SCROLL
     // ============================================
     
-    const projectImages = document.querySelectorAll('.project-image');
-    
-    projectImages.forEach(container => {
-        const img = container.querySelector('img');
+    function initializeHoverScroll() {
+        const projectImages = document.querySelectorAll('.project-image:not(.hidden)');
         
-        if (img.complete) {
-            calculateAndSetHoverScroll(container, img);
-        } else {
-            img.addEventListener('load', () => {
+        projectImages.forEach(container => {
+            const img = container.querySelector('img');
+            // Check if already initialized
+            if (container.getAttribute('data-scroll-initialized')) return;
+            
+            if (img.complete) {
                 calculateAndSetHoverScroll(container, img);
-            });
-        }
-    });
+            } else {
+                img.addEventListener('load', () => {
+                    calculateAndSetHoverScroll(container, img);
+                });
+            }
+        });
+    }
     
     function calculateAndSetHoverScroll(container, img) {
         const containerHeight = container.offsetHeight;
@@ -148,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollDistance = imageHeight - containerHeight;
         
         if (scrollDistance > 0) {
+            container.setAttribute('data-scroll-initialized', 'true');
             container.addEventListener('mouseenter', () => {
                 img.style.top = `-${scrollDistance}px`;
             });
@@ -157,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+    
+    initializeHoverScroll();
 
     // ============================================
     // PROJECT DETAILS MODAL
@@ -251,6 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update pagination buttons
         renderPagination(totalPages, visibleCards.length);
+        
+        // Re-initialize hover scroll for newly visible cards
+        initializeHoverScroll();
     }
 
     function renderPagination(totalPages, totalProjects) {
