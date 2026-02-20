@@ -357,13 +357,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+                if (entry.target.classList.contains('fade-in')) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.add('animate-in');
+                }
             }
         });
     }, observerOptions);
 
-    // Observe elements for animation
-    document.querySelectorAll('.skill-category, .strength-card, .tool-card').forEach(el => {
+    // Observe elements for animation (including fade-in utility)
+    document.querySelectorAll('.skill-category, .strength-card, .tool-card, .fade-in').forEach(el => {
         observer.observe(el);
     });
 

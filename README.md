@@ -1,57 +1,37 @@
 # Portfolio Website
 
-This is a static portfolio website built using Tailwind CSS. It showcases projects, skills, and contact information in a clean and responsive layout.
+This is a static portfolio/marketing site for Michael Angelo Lacuata, a freelance WordPress and web developer. It uses custom CSS (in `assets/style.css`) and vanilla JavaScript (`assets/script.js`) to create a clean, responsive, and interactive layout.
 
 ## Project Structure
 
 ```
-portfolio-website
-├── src
-│   ├── index.html        # Main HTML document
-│   ├── styles
-│   │   └── tailwind.css  # Tailwind CSS styles
-│   └── scripts
-│       └── main.js       # JavaScript for interactivity
-├── tailwind.config.js    # Tailwind CSS configuration
-├── package.json          # npm configuration
-└── README.md             # Project documentation
+/                      # repository root
+├── index.html          # Main HTML document with sections for hero, about, skills, projects, testimonials, contact, etc.
+├── assets/
+│   ├── style.css       # Custom stylesheet with dark mode, animations, and SEO‑friendly utilities
+│   └── script.js       # JavaScript handles navigation, filtering, form submission, and scroll animations
+├── images/             # Image assets (profile, tools icons, project thumbnails)
+├── sitemap.xml         # Sitemap for search engines
+├── robots.txt          # Crawler instructions
+└── README.md           # Project documentation
 ```
 
-## Setup Instructions
+## SEO & Performance Enhancements
 
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd portfolio-website
-   ```
+- Meta tags for description, keywords, canonical link, robots and theme color
+- Open Graph and Twitter Card tags for social sharing
+- Structured data (JSON‑LD) describing the person and website
+- `sitemap.xml` and `robots.txt` included for indexing
+- `loading="lazy"` on images and width/height attributes to reduce layout shift
+- IntersectionObserver animations and fade‑in utilities for a polished user experience
 
-2. **Install dependencies:**
-   ```
-   npm install
-   ```
+## Customization & Deployment
 
-3. **Build the project:**
-   ```
-   npm run build
-   ```
-
-4. **Serve the project:**
-   ```
-   npm start
-   ```
-
-## Features
-
-- Responsive design using Tailwind CSS
-- Interactive elements powered by JavaScript
-- Easy customization through Tailwind configuration
-
-## Usage Guidelines
-
-- Modify the `src/index.html` file to update the content of the portfolio.
-- Customize styles in `src/styles/tailwind.css` as needed.
-- Add interactivity in `src/scripts/main.js`.
+- Update content directly in `index.html`; sections are marked with comments for easy editing.
+- Adjust styles in `assets/style.css` or extend with Tailwind if preferred.
+- Modify or extend interactivity in `assets/script.js`.
+- Host on GitHub Pages, Netlify, Vercel, or any static file server.
 
 ## License
 
-This project is licensed under the MIT License.
+This site is governed by the MIT License.

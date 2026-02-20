@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://michaellacuata.github.io/sitemap.xml

@@ -2820,3 +2820,78 @@ footer {
         padding: 6px 14px;
     }
 }
+
+/* Fade‑in utility for scroll animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Testimonials section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background: var(--bg-white);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    position: relative;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.testimonial-card .testimonial-author {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-style: normal;
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.project-image img {
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: inherit;
+    margin: 0 8px;
+    font-size: 1.2rem;
+}
+
+.footer-social {
+    margin-top: 8px;
+}
