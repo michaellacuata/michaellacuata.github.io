@@ -2870,8 +2870,11 @@ footer {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+/* ensure images maintain relative positioning and smooth top scroll */
 .project-image img {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, top 3s ease-in-out;
+    position: relative;
+    top: 0;
 }
 
 .project-card:hover .project-image img {
