@@ -2889,6 +2889,36 @@ footer {
     text-align: center;
 }
 
+/* Blog post styles */
+.blog-post, .blog-post-full {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.blog-post .post-title, .blog-post-full h1 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.post-excerpt p {
+    line-height: 1.7;
+}
+
+.blog-post-full img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Utility to automatically optimize blog images: add attributes in markup */
+/* Images in blog posts should include loading="lazy" and width/height or srcset directly in HTML. */
 .footer a {
     color: inherit;
     margin: 0 8px;
