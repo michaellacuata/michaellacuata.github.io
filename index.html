@@ -22,12 +22,14 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="/images/ml-favicon.png" type="image/x-icon">
 </head>
 <body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -41,7 +43,7 @@
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <!-- <li><a href="#experience" class="nav-link">Experience</a></li> -->
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-contact-me">
                     <span class="btn-text">Contact Me</span>
@@ -57,15 +59,36 @@
         <div class="nav-indicator"></div>
     </nav>
 
-<!-- Hero Section -->
+    <main id="main-content">
+
+    <!-- Hero Section -->
     <section id="home" class="hero section fade-in">
         <div class="container hero-content">
             
             <!-- Left Side: Text -->
             <div class="hero-text">
+                <div class="hero-status" role="status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Available for freelance &amp; contract work</span>
+                </div>
                 <span class="badge">WordPress & Web Developer</span>
                 <h1>Hello, I'm <span class="highlight">Michael Angelo Lacuata</span></h1>
-                <p>I build high-performing custom WordPress websites, themes and plugins with over 10 years of experience in PHP, WooCommerce, and modern web technologies. Based in Pangasinan, Philippines, I help businesses grow online with fast, SEO-friendly sites.</p>
+                <p class="hero-tagline">I build <span id="hero-rotator" class="hero-rotator" aria-live="polite">custom WordPress websites</span> that are fast, secure, and built to convert.</p>
+                <p class="hero-description">Over 10 years specialising in PHP, WooCommerce, and modern web technologies. Based in Pangasinan, Philippines — helping businesses across Australia and beyond grow online with SEO-friendly, high-performing sites.</p>
+                <div class="hero-stats" aria-label="Professional highlights">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Live Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Clients Served</span>
+                    </div>
+                </div>
                 <div class="cta-group">
                     <a href="#contact" class="btn-primary">
                         <span class="btn-text">Get in Touch</span>
@@ -169,6 +192,41 @@
                         <li>Site Migration, Backups & Security</li>
                         <li>Performance Optimization & SEO</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How I Work -->
+    <section id="process" class="section process-section fade-in">
+        <div class="container">
+            <span class="section-label">HOW I WORK</span>
+            <h2 class="section-title">A Clear, Reliable Process</h2>
+            <p class="section-intro">From first conversation to launch and beyond — a structured approach that keeps projects on track and clients informed.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-step">01</span>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Discovery</h3>
+                    <p>We align on goals, audience, and requirements so the build solves real business needs from day one.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">02</span>
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <h3>Design &amp; Build</h3>
+                    <p>Custom WordPress development with clean code, responsive layouts, and performance best practices built in.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">03</span>
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Launch</h3>
+                    <p>Thorough testing, SEO setup, and a smooth go-live — plus training so you can manage content confidently.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">04</span>
+                    <div class="process-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Support</h3>
+                    <p>Ongoing maintenance, updates, and optimisations so your site stays secure, fast, and effective long term.</p>
                 </div>
             </div>
         </div>
@@ -556,7 +614,16 @@
     <section id="projects" class="section bg-light fade-in">
         <div class="container">
             <div class="projects-header">
-                    <h2 class="projects-title">Showcasing recent WordPress projects</h2>
+                    <span class="section-label">PORTFOLIO</span>
+                    <h2 class="projects-title">WordPress Projects That Drive Results</h2>
+                    <p class="projects-subtitle">A selection of live websites built for businesses across Australia and beyond.</p>
+                    <div class="projects-toolbar">
+                        <div class="projects-search-wrap">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <input type="search" id="project-search" class="project-search-input" placeholder="Search by name or type..." aria-label="Search projects" autocomplete="off">
+                        </div>
+                        <p class="projects-count" id="projects-count" aria-live="polite"></p>
+                    </div>
                     <div class="projects-filter">
                         <button class="filter-btn active" data-filter="all">All Projects</button>
                         <button class="filter-btn" data-filter="service">Service-Based</button>
@@ -2335,13 +2402,48 @@
         </div>
     </section>
 
+    </main>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Michael Angelo Lacuata. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/michael-angelo-lacuata-50a645b1/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>MIKE<span class="logo-accent">DEV</span><span class="logo-bracket">/&gt;</span>
                 </a>
+                <p>WordPress developer building fast, secure websites for businesses that want to grow online.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <p><a href="mailto:michaelangelolacuata022@gmail.com">michaelangelolacuata022@gmail.com</a></p>
+                <p><a href="tel:+639485643342">+63 948 564 3342</a></p>
+                <p>Pangasinan, Philippines</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 Michael Angelo Lacuata. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/michael-angelo-lacuata-50a645b1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://drive.google.com/uc?export=download&id=1zsJdPp2JDyO8yjt-b1hxiEe-FFuLPpnK" target="_blank" rel="noopener noreferrer" aria-label="Download resume">
+                        <i class="fas fa-file-arrow-down"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

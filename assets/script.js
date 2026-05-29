@@ -216,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.active');
+            if (activeModal) {
+                activeModal.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+    });
+
     // ============================================
     // PROJECT FILTER FUNCTIONALITY WITH PAGINATION
     // ============================================
@@ -223,12 +233,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     const paginationContainer = document.getElementById('pagination');
+    const projectSearchInput = document.getElementById('project-search');
+    const projectsCountEl = document.getElementById('projects-count');
+    const projectsGrid = document.querySelector('.projects-grid');
     const projectsPerPage = 15;
     let currentPage = 1;
     let currentFilter = 'all';
+    let searchQuery = '';
 
     // Initialize pagination on page load
     updateProjectsDisplay();
+
+    if (projectSearchInput) {
+        projectSearchInput.addEventListener('input', debounce(() => {
+            searchQuery = projectSearchInput.value.trim().toLowerCase();
+            currentPage = 1;
+            updateProjectsDisplay();
+        }, 200));
+    }
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -244,12 +266,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function cardMatchesSearch(card) {
+        if (!searchQuery) return true;
+        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const category = card.querySelector('.project-category')?.textContent.toLowerCase() || '';
+        const dataCategory = card.getAttribute('data-category') || '';
+        return title.includes(searchQuery) ||
+            category.includes(searchQuery) ||
+            dataCategory.includes(searchQuery);
+    }
+
     function updateProjectsDisplay() {
-        // Get all visible projects based on current filter
+        // Get all visible projects based on current filter and search
         const visibleCards = Array.from(projectCards).filter(card => {
-            if (currentFilter === 'all') return true;
-            const category = card.getAttribute('data-category');
-            return category === currentFilter;
+            if (currentFilter !== 'all') {
+                const category = card.getAttribute('data-category');
+                if (category !== currentFilter) return false;
+            }
+            return cardMatchesSearch(card);
         });
 
         // Calculate pagination
@@ -272,6 +306,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update pagination buttons
         renderPagination(totalPages, visibleCards.length);
+
+        // Update project count & empty state
+        if (projectsCountEl) {
+            if (visibleCards.length === 0) {
+                projectsCountEl.textContent = 'No projects match your search';
+            } else {
+                const startNum = (currentPage - 1) * projectsPerPage + 1;
+                const endNum = Math.min(currentPage * projectsPerPage, visibleCards.length);
+                projectsCountEl.textContent = `Showing ${startNum}–${endNum} of ${visibleCards.length} projects`;
+            }
+        }
+
+        let noResultsEl = document.querySelector('.projects-no-results');
+        if (visibleCards.length === 0 && projectsGrid) {
+            if (!noResultsEl) {
+                noResultsEl = document.createElement('p');
+                noResultsEl.className = 'projects-no-results';
+                noResultsEl.setAttribute('role', 'status');
+                projectsGrid.appendChild(noResultsEl);
+            }
+            noResultsEl.textContent = searchQuery
+                ? `No projects found for "${projectSearchInput?.value.trim() || searchQuery}"`
+                : 'No projects in this category yet.';
+            noResultsEl.classList.remove('hidden');
+        } else if (noResultsEl) {
+            noResultsEl.classList.add('hidden');
+        }
         
         // Re-initialize hover scroll for newly visible projects
         setTimeout(() => {
@@ -367,9 +428,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Observe elements for animation (including fade-in utility)
-    document.querySelectorAll('.skill-category, .strength-card, .tool-card, .fade-in').forEach(el => {
+    document.querySelectorAll('.skill-category, .strength-card, .tool-card, .process-card, .fade-in').forEach(el => {
         observer.observe(el);
     });
+
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', debounce(() => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }, 50));
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ============================================
+    // HERO ROLE ROTATOR
+    // ============================================
+
+    const heroRotator = document.getElementById('hero-rotator');
+    const heroRoles = [
+        'custom WordPress websites',
+        'WooCommerce stores',
+        'booking & service sites',
+        'fast, SEO-friendly builds'
+    ];
+    let roleIndex = 0;
+
+    if (heroRotator) {
+        setInterval(() => {
+            roleIndex = (roleIndex + 1) % heroRoles.length;
+            heroRotator.style.opacity = '0';
+            setTimeout(() => {
+                heroRotator.textContent = heroRoles[roleIndex];
+                heroRotator.style.opacity = '1';
+            }, 300);
+        }, 3500);
+        heroRotator.style.transition = 'opacity 0.3s ease';
+    }
 
     // ============================================
     // PARTICLE BACKGROUND (Optional Enhancement)
@@ -432,6 +538,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            if (submitBtn) submitBtn.classList.add('loading');
             
             const formData = new FormData(contactForm);
             
@@ -443,6 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .then(response => {
+                if (submitBtn) submitBtn.classList.remove('loading');
                 if (response.ok) {
                     contactForm.reset();
                     if (formStatus) {
@@ -457,6 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(() => {
+                if (submitBtn) submitBtn.classList.remove('loading');
                 if (formStatus) {
                     formStatus.textContent = 'Network error. Please try again.';
                     formStatus.style.color = '#ef4444';
