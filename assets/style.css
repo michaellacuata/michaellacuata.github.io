@@ -3181,6 +3181,8 @@ footer {
 }
 
 .projects-search-wrap {
+    margin: 0 auto;
+    margin-bottom: 15px;
     position: relative;
     flex: 1;
     min-width: 260px;
